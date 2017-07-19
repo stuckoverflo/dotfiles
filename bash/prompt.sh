@@ -1,0 +1,7 @@
+DIR_COLOR="\e[38;2;131;165;152m"
+RED="\e[38;2;251;73;52m"
+YELLOW="\e[38;2;250;189;47m"
+COLOR_OFF="\e[0m"
+GREEN='\e[0;32m'
+
+PS1="\n \[$DIR_COLOR\]\w\n \[$RED\]\[$YELLOW\]\[$GREEN\]\[$COLOR_OFF\] "
