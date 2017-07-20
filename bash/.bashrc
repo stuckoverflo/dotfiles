@@ -4,7 +4,7 @@ export LANG=en_IN.UTF-8
 [ -f ~/.fzf.bash  ] && source ~/.fzf.bash
 
 thisDirectory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source $HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh
+source $thisDirectory/gruvbox_256palette.sh
 eval "$(dircolors $thisDirectory/.dircolors)"
 
 source $thisDirectory/aliases.sh
