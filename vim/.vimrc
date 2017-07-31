@@ -12,6 +12,7 @@ filetype indent on
 call plug#begin()
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+"Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
 Plug 'vim-perl/vim-perl'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jessedhillon/vim-easycomment'
@@ -22,6 +23,9 @@ Plug 'morhetz/gruvbox'
 Plug 'ajh17/VimCompletesMe'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'itchyny/lightline.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'dracula/vim'
+Plug 'szw/vim-maximizer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 "Plug 'blueyed/vim-diminactive'
 
@@ -29,6 +33,7 @@ call plug#end()
 
 set background=dark
 color gruvbox
+"color onedark
 let g:gruvbox_bold = 0
 
 set fillchars=""
@@ -273,6 +278,10 @@ let g:lightline = {
 function! LightlineReadonly()
     return &readonly ? '' : ''
 endfunction
+
+nnoremap <silent>so :MaximizerToggle<CR>
+vnoremap <silent>so :MaximizerToggle<CR>gv
+inoremap <silent>so <C-o>:MaximizerToggle<CR>
 
 set swapfile
 set backupdir=~/.vim/backup//   " custom location for vim safety net
