@@ -126,6 +126,7 @@ augroup windowManagementShortcut
     autocmd filetype netrw nnoremap <buffer> s <C-W>
 augroup END
 
+set mouse=a
 map m :call ToggleMouse()<CR>
 function! ToggleMouse()
   if &mouse == 'a'
@@ -281,7 +282,6 @@ endfunction
 
 nnoremap <silent>so :MaximizerToggle<CR>
 vnoremap <silent>so :MaximizerToggle<CR>gv
-inoremap <silent>so <C-o>:MaximizerToggle<CR>
 
 set swapfile
 set backupdir=~/.vim/backup//   " custom location for vim safety net
