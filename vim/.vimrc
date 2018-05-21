@@ -25,6 +25,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'szw/vim-maximizer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'Vimjas/vim-python-pep8-indent'
 
 call plug#end()
 
@@ -75,6 +76,7 @@ set expandtab                   " use spaces instead of tabs
 set smarttab                    " be smart when using tabs
 set shiftwidth=4                " 1 tab == 4 spaces
 set tabstop=4                   " how long tab is
+set softtabstop=4
 
 set ai                          " auto indent
 set si                          " smart indent

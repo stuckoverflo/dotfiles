@@ -8,8 +8,8 @@ alias grpe=grep
 alias grep="grep --color -E "$1" $2"
 alias emacs=vim
 
-alias ll="ls -alh --color=auto --group-directories-first"
-alias lll="ls -haltr --color=auto --group-directories-first"
+alias ll="ls -alh"
+alias lll="ls -haltr"
 alias lg="lll | grep -i"
 
 alias lo="logout"
@@ -28,3 +28,5 @@ alias ..3="cd ../../.."
 alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 
+# python
+alias p="python3"
