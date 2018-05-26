@@ -30,3 +30,5 @@ alias ..5="cd ../../../../.."
 
 # python
 alias p="python3"
+
+alias srcprof="source ~/.bashrc"

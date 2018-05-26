@@ -76,7 +76,6 @@ set expandtab                   " use spaces instead of tabs
 set smarttab                    " be smart when using tabs
 set shiftwidth=4                " 1 tab == 4 spaces
 set tabstop=4                   " how long tab is
-set softtabstop=4
 
 set ai                          " auto indent
 set si                          " smart indent
@@ -238,6 +237,8 @@ augroup easyCommentPluginConfig
   au FileType cpp let b:comment_style="block"
   au FileType cpp let b:comment_opener='/*'
   au FileType cpp let b:comment_closer='*/'
+  au FileType py let b:comment_style="inline"
+  au FileType py let b:comment_opener="# "
 augroup END
 
 " autoswap config
