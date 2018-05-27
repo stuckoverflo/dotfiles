@@ -26,6 +26,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'szw/vim-maximizer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -247,17 +248,9 @@ let g:autoswap_detect_tmux = 1
 " auto-pairs
 let g:AutoPairsCenterLine = 0
 
-""""""""""""""""""""""""""""""""""""""""""""
-" Functions
-""""""""""""""""""""""""""""""""""""""""""""
-
-" returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    en
-    return ''
-endfunction
+" vim-ale
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
 
 " started In Diff-Mode set diffexpr (plugin not loaded yet)
 if &diff
@@ -281,6 +274,19 @@ endfunction
 
 nnoremap <silent>so :MaximizerToggle<CR>
 vnoremap <silent>so :MaximizerToggle<CR>gv
+
+""""""""""""""""""""""""""""""""""""""""""""
+" Functions
+""""""""""""""""""""""""""""""""""""""""""""
+
+" returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    en
+    return ''
+endfunction
+
 
 set swapfile
 set backupdir=~/.vim/backup//   " custom location for vim safety net
