@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 E='\033[1;30m[exists]'
 I='\033[1;32m[installed]'
@@ -16,3 +16,12 @@ install () {
   fi
   echo
 }
+
+install bashrc .bashrc
+# install dircolors .dircolors
+# install gitignore .gitignore_global
+# install inputrc .inputrc
+# install tmux.conf .tmux_conf
+# install vimrc .vimrc
+# install zshrc .zshrc
+

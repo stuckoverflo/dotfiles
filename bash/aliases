@@ -13,7 +13,7 @@ alias sl=ls
 alias gerp=grep
 alias grpe=grep
 
-alias ld="ls -la | grep "^d" && ls -la | grep -v "^d""
+alias lsd="ls -la | grep "^d" && ls -la | grep -v "^d""
 alias ll="ls -alh"
 alias lll="ls -haltr"
 alias lg="lll | grep -i"
