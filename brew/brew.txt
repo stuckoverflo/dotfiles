@@ -6,6 +6,7 @@ git
 grep
 jq
 macvim
+mas
 mysql
 node
 openssl@1.1
