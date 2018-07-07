@@ -9,3 +9,5 @@ thisDirectory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source $thisDirectory/aliases.sh
 source $thisDirectory/prompt.sh
+source $thisDirectory/utils.sh
+source $thisDirectory/git_utils.sh

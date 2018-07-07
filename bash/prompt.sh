@@ -6,7 +6,6 @@ GREEN='\e[0;32m'
 
 # PS1="\n \[$DIR_COLOR\]\w\n \[$RED\]\[$YELLOW\]\[$GREEN\]\[$COLOR_OFF\] "
 
-# if .git-prompt.sh exists, set options and execute it
 if [ -f ~/.git-prompt.sh ]; then
   GIT_PS1_SHOWDIRTYSTATE=true
   GIT_PS1_SHOWSTASHSTATE=true
@@ -17,6 +16,16 @@ if [ -f ~/.git-prompt.sh ]; then
   . ~/.git-prompt.sh
 fi
 
-export PROMPT_COMMAND='__git_ps1 "\n \[$DIR_COLOR\]\w\[$RED\]" "\n\[$RED\] \[$YELLOW\]\[$GREEN\]\[$COLOR_OFF\] "'
-
- 
+function virtualenv_info(){
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        if echo "$VIRTUAL_ENV" | grep -q "work"; then
+            venv="${VIRTUAL_ENV##*dev/}"
+        else
+            venv="${VIRTUAL_ENV##*/}"
+        fi
+    else
+        venv=''
+    fi
+    [[ -n "$venv" ]] && echo " ($venv)"
+}
+export PROMPT_COMMAND='__git_ps1 "\n \[$DIR_COLOR\]\w\[$RED\]" " \[$YELLOW\]$(virtualenv_info)\n\[$RED\] \[$YELLOW\]\[$GREEN\]\[$COLOR_OFF\] "'

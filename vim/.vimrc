@@ -11,22 +11,25 @@ filetype indent on
 
 call plug#begin()
 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'vim-perl/vim-perl'
-Plug 'jiangmiao/auto-pairs'
-Plug 'jessedhillon/vim-easycomment'
-Plug 'junegunn/vim-easy-align'
-Plug 'gioele/vim-autoswap'
-Plug 'tpope/vim-surround'
-Plug 'morhetz/gruvbox'
-Plug 'ajh17/VimCompletesMe'
-Plug 'chrisbra/vim-diff-enhanced'
-Plug 'itchyny/lightline.vim'
-Plug 'joshdick/onedark.vim'
-Plug 'szw/vim-maximizer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-Plug 'Vimjas/vim-python-pep8-indent'
+
+Plug 'morhetz/gruvbox'
+Plug 'itchyny/lightline.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-surround'
+Plug 'jessedhillon/vim-easycomment'
+
 Plug 'w0rp/ale'
+Plug 'Vimjas/vim-python-pep8-indent'
+
+Plug 'chrisbra/vim-diff-enhanced'
+Plug 'gioele/vim-autoswap'
+Plug 'ajh17/VimCompletesMe'
+Plug 'szw/vim-maximizer'
 
 call plug#end()
 
@@ -45,7 +48,7 @@ set autoread                    " set to auto read when a file is changed from t
 let mapleader = ","             " map comma as leader
 let g:mapleader = ","
 
-set number                      " show line number
+" set number                      " show line number
 set cursorline                  " highlight current line
 set so=7                        " set 7 lines to the cursor - when moving vertically using j/k
 set wildmenu                    " command completion
@@ -186,6 +189,9 @@ nnoremap <leader>, :update<CR>
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
+" copy to clipboard
+noremap <leader>y "*y
+
 " Enter mapped to : in normal mode
 nnoremap <Enter> :
 
@@ -221,7 +227,7 @@ noremap <leader>n :set number!<cr>
 map <Leader>d :NERDTreeToggle<CR>
 
 "fzf
-noremap <c-p> :FZF ~<cr>
+noremap <c-p> :FZF <cr>
 
 vmap <silent> <C-_> :call ToggleCommentVisual()<CR>
 nmap <silent> <C-_> :call ToggleCommentLine()<CR>
@@ -251,6 +257,7 @@ let g:AutoPairsCenterLine = 0
 " vim-ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+let b:ale_linters = ['flake8']
 
 " started In Diff-Mode set diffexpr (plugin not loaded yet)
 if &diff
@@ -293,3 +300,5 @@ set backupdir=~/.vim/backup//   " custom location for vim safety net
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
+let python_highlight_all=1
+set colorcolumn=120
