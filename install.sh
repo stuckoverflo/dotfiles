@@ -24,4 +24,3 @@ install inputrc .inputrc
 install tmux.conf .tmux_conf
 install vimrc .vimrc
 install zshrc .zshrc
-

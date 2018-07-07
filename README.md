@@ -1,5 +1,13 @@
 # dotfiles
 
+## Installation
+
+### dotfiles
 ```
-zsh install.sh
+./install.sh
+```
+
+### brew
+```
+./brew/brew.sh
 ```
