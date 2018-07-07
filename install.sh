@@ -18,10 +18,10 @@ install () {
 }
 
 install bashrc .bashrc
-# install dircolors .dircolors
-# install gitignore .gitignore_global
-# install inputrc .inputrc
-# install tmux.conf .tmux_conf
-# install vimrc .vimrc
-# install zshrc .zshrc
+install dircolors .dircolors
+install gitignore .gitignore_global
+install inputrc .inputrc
+install tmux.conf .tmux_conf
+install vimrc .vimrc
+install zshrc .zshrc
 
