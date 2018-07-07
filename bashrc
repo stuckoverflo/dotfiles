@@ -1,6 +1,6 @@
-source ~/.dotfiles/bash/aliases
-source ~/.dotfiles/bash/prompt
-source ~/.dotfiles/bash/utils
+source ~/.dotfiles/shell/aliases
+source ~/.dotfiles/shell/prompt
+source ~/.dotfiles/shell/utils
 
 # autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
