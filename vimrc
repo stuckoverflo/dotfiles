@@ -1,13 +1,9 @@
-if (has("termguicolors"))
-    set termguicolors
+" Install vim-plug if it doesn't exist
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
-if !exists("g:syntax_on")
-    syntax enable
-endif
-
-filetype plugin on
-filetype indent on
 
 call plug#begin()
 
@@ -32,6 +28,19 @@ Plug 'ajh17/VimCompletesMe'
 Plug 'szw/vim-maximizer'
 
 call plug#end()
+
+
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+if !exists("g:syntax_on")
+    syntax enable
+endif
+
+filetype plugin on
+filetype indent on
+
 
 set background=dark
 color gruvbox
