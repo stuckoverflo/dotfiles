@@ -20,3 +20,4 @@ function set_git_email() {
     git config user.email $email
 }
 
+
