@@ -1,0 +1,23 @@
+function diffo() {
+    diff $1 $2 | sed -n 's/^> \(.*\)/\1/p'
+}
+
+function tm() {
+    tmux attach -t $1 || tmux new -s $1
+}
+
+alias sge='set_git_email'
+function set_git_email() {
+    remote=`git remote -v | awk '/\(push\)$/ {print $2}'`
+    email=florobarotjr@gmail.com # default
+
+    if [[ $remote == *github.com:thinkingmachines* ]]; then
+        echo "here"
+        email=flo@thinkingmachin.es
+    fi
+
+    echo "Configuring user.email as $email"
+    git config user.email $email
+}
+
+
