@@ -19,3 +19,7 @@ install () {
 }
 
 install settings.json "$CONFIG_DIR/settings.json"
+
+while read p; do
+    code --install-extension $p
+done <"extensions.txt"
