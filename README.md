@@ -18,3 +18,8 @@ cd ~/.dotfiles
 ```
 ./python/python.sh
 ```
+
+### VS Code
+```
+./vscode/vscode.sh
+```
