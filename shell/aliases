@@ -30,6 +30,7 @@ alias v=vim
 
 # python
 alias p=python3
+alias python=python3
 alias python_makefile="curl -sL git.io/py_makefile > Makefile"
 alias jtt='jt -t gruvboxd -dfonts -T -N -nfs 10 -fs 12 -dfs 10 -ofs 10'
 
