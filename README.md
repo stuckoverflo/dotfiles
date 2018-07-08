@@ -18,3 +18,7 @@ cd ~/.dotfiles
 ```
 ./python/python.sh
 ```
+
+### iTerm
+In the Preferences window, check `Load preferences from a custom folder or URL` and point it to the `iterm` directory
+of the cloned repo
