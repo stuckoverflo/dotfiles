@@ -13,3 +13,8 @@ cd ~/.dotfiles
 ```
 ./brew/brew.sh
 ```
+
+### python
+```
+./python/python.sh
+```
