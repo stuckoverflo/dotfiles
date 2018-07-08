@@ -3,6 +3,8 @@ source ~/.dotfiles/shell/utils
 
 source ~/.dotfiles/bash/prompt
 
+source ~/.secrets
+
 export LC_ALL=C
 source ~/.dotfiles/bash/git-completion.bash
 export LC_ALL=en_US.UTF-8
