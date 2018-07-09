@@ -10,6 +10,8 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 
 Plug 'morhetz/gruvbox'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'itchyny/vim-gitbranch'
 Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -275,11 +277,16 @@ endif
 
 let g:lightline = {
     \ 'colorscheme': 'gruvbox',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ]  ]
+    \ },
     \ 'component': {
     \   'lineinfo': ' %3l:%-2v',
     \ },
     \ 'component_function': {
     \   'readonly': 'LightlineReadonly',
+    \   'gitbranch': 'gitbranch#name'
     \ },
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '', 'right': '' }

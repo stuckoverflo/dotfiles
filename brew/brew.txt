@@ -1,6 +1,7 @@
 ack
 direnv
 dos2unix
+fasd
 fd
 git
 grep
