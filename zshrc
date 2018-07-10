@@ -1,15 +1,13 @@
-source ~/.dotfiles/shell/aliases
-source ~/.dotfiles/shell/utils
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
-source ~/.secrets
+# slim ZSH
+source "$HOME/.slimzsh/slim.zsh"
 
 # direnv
 export DIRENV_BASH=/bin/bash
 eval "$(direnv hook zsh)"
 alias da='direnv allow'
-
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # fasd
 fasd_cache="$HOME/.fasd-init-zsh"
@@ -19,7 +17,11 @@ fi
 source "$fasd_cache"
 unset fasd_cache
 
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.dotfiles/shell/aliases
+source ~/.dotfiles/shell/utils
+
+source ~/.secrets
 alias srcprof="source ~/.zshrc"
-
-source "$HOME/.slimzsh/slim.zsh"
-

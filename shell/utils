@@ -19,5 +19,3 @@ function set_git_email() {
     echo "Configuring user.email as $email"
     git config user.email $email
 }
-
-
