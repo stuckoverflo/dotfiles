@@ -28,8 +28,13 @@ Plug 'gioele/vim-autoswap'
 Plug 'ajh17/VimCompletesMe'
 Plug 'szw/vim-maximizer'
 
-call plug#end()
+" test if they will be useful
+Plug 'mtth/scratch.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/vim-peekaboo'
 
+call plug#end()
 
 if (has("termguicolors"))
     set termguicolors
@@ -317,3 +322,23 @@ set undodir=~/.vim/undo//
 
 let python_highlight_all=1
 set colorcolumn=120
+
+" Z - fzf to recent / frequent directories
+command! -nargs=* Z :call Z(<f-args>)
+function! Z(...)
+  let cmd = 'fasd -d -e printf'
+  for arg in a:000
+    let cmd = cmd . ' ' . arg
+  endfor
+  let path = system(cmd)
+  if isdirectory(path)
+    echo path
+    exec 'FZF' fnameescape(path)
+  endif
+endfunction
+
+" scratch plugin
+let g:scratch_insert_autohide = 0
+let g:scratch_height = 60
+let g:scratch_horizontal = 0
+let g:scratch_top = 0

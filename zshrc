@@ -1,13 +1,13 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# slim ZSH
-source "$HOME/.slimzsh/slim.zsh"
-
 # direnv
 export DIRENV_BASH=/bin/bash
 eval "$(direnv hook zsh)"
 alias da='direnv allow'
+
+# slim ZSH
+source "$HOME/.slimzsh/slim.zsh"
 
 # fasd
 fasd_cache="$HOME/.fasd-init-zsh"
