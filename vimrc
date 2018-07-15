@@ -28,11 +28,14 @@ Plug 'gioele/vim-autoswap'
 Plug 'ajh17/VimCompletesMe'
 Plug 'szw/vim-maximizer'
 
-" test if they will be useful
 Plug 'mtth/scratch.vim'
+
+" test if they will be useful
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'mbbill/undotree'
+Plug 'tweekmonster/braceless.vim'
 
 call plug#end()
 
@@ -292,7 +295,7 @@ let g:lightline = {
     \   'readonly': 'LightlineReadonly',
     \   'gitbranch': 'gitbranch#name'
     \ },
-    \ 'separator': { 'left': '', 'right': '' },
+    \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '', 'right': '' }
     \ }
 function! LightlineReadonly()
@@ -342,3 +345,6 @@ let g:scratch_insert_autohide = 0
 let g:scratch_height = 60
 let g:scratch_horizontal = 0
 let g:scratch_top = 0
+
+" braceless
+autocmd FileType python BracelessEnable +indent
