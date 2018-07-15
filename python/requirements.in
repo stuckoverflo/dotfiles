@@ -3,6 +3,7 @@ cookiecutter
 cryptography
 flake8
 grip
+isort
 jupyter
 pandas
 pip-autoremove

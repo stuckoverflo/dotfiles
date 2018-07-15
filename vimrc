@@ -21,7 +21,9 @@ Plug 'tpope/vim-eunuch'
 
 Plug 'w0rp/ale'
 Plug 'maximbaz/lightline-ale'
+
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'fisadev/vim-isort'
 
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'gioele/vim-autoswap'
