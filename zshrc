@@ -7,7 +7,7 @@ eval "$(direnv hook zsh)"
 alias da='direnv allow'
 
 # slim ZSH
-source "$HOME/.slimzsh/slim.zsh"
+source ~/.dotfiles/zsh/slimzsh/slim.zsh
 
 # fasd
 fasd_cache="$HOME/.fasd-init-zsh"
