@@ -106,11 +106,19 @@ set nowrap                      " don't wrap lines
 
 set showcmd                     " show commands the user enters
 set laststatus=2                " always show the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 set nohlsearch                  " turn off highlighting
 
 set noshowmode                  " already taken care of by vim-airline
+
+set swapfile
+set backupdir=~/.vim/backup//   " custom location for vim safety net
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+
+set colorcolumn=120
+
+let python_highlight_all=1
 
 " F1 is evil
 nnoremap <F1> <Esc>
@@ -132,12 +140,6 @@ noremap <up> :echo "use k"<cr>
 noremap <down> :echo "use j"<cr>
 noremap <left> :echo "use h"<cr>
 noremap <right> :echo "use l"<cr>
-
-" disable paste mode when exiting Insert mode
-augroup disablePasteModeWhenExitingInsertMode
-  autocmd!
-  au InsertLeave * set nopaste
-augroup END
 
 " window management
 nnoremap s <C-W>
@@ -164,9 +166,6 @@ augroup bufRead
   autocmd BufReadPost * normal `"
 augroup END
 
-""""""""""""""""""""""""""""""""""""""""""""
-" Key bindings
-""""""""""""""""""""""""""""""""""""""""""""
 " <Esc> alternatives
 inoremap jj <Esc>:update<CR>
 inoremap jk <Esc>:update<CR>
@@ -174,6 +173,22 @@ inoremap jk <Esc>:update<CR>
 " toggle pastemode
 set pastetoggle=<F5>
 
+" returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    en
+    return ''
+endfunction
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+
+" disable paste mode when exiting Insert mode
+augroup disablePasteModeWhenExitingInsertMode
+  autocmd!
+  au InsertLeave * set nopaste
+augroup END
+
+" buffers
 function! s:buflist()
   redir => ls
   silent ls
@@ -184,13 +199,6 @@ endfunction
 function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
-
-nnoremap <silent> <TAB> :call fzf#run({
-\   'source':  reverse(<sid>buflist()),
-\   'sink':    function('<sid>bufopen'),
-\   'options': '+m',
-\   'down':    len(<sid>buflist()) + 2
-\ })<CR>
 
 " map <Space> to / (search) and ctrl+<Space> to ? (backwards search)
 map <space> :set hlsearch<CR>/
@@ -242,11 +250,9 @@ noremap <leader>n :set number!<cr>
 """"""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""
+
 " nerdtree
 map <Leader>d :NERDTreeToggle<CR>
-
-"fzf
-noremap <c-p> :FZF <cr>
 
 vmap <silent> <C-_> :call ToggleCommentVisual()<CR>
 nmap <silent> <C-_> :call ToggleCommentLine()<CR>
@@ -319,29 +325,19 @@ let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
 let g:lightline#ale#indicator_ok = "\uf00c"
 
+" vim-maximizer
 nnoremap <silent>so :MaximizerToggle<CR>
 vnoremap <silent>so :MaximizerToggle<CR>gv
 
-""""""""""""""""""""""""""""""""""""""""""""
-" Functions
-""""""""""""""""""""""""""""""""""""""""""""
+" fzf
+nnoremap <silent> <TAB> :call fzf#run({
+\   'source':  reverse(<sid>buflist()),
+\   'sink':    function('<sid>bufopen'),
+\   'options': '+m',
+\   'down':    len(<sid>buflist()) + 2
+\ })<CR>
 
-" returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    en
-    return ''
-endfunction
-
-
-set swapfile
-set backupdir=~/.vim/backup//   " custom location for vim safety net
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
-
-let python_highlight_all=1
-set colorcolumn=120
+noremap <c-p> :FZF <cr>
 
 " Z - fzf to recent / frequent directories
 command! -nargs=* Z :call Z(<f-args>)
