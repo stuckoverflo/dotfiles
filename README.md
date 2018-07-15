@@ -2,10 +2,14 @@
 
 ## Installation
 
+### Clone the repository along with its submodules
+```
+git clone --recursive https://github.com/florobarotjr/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+```
+
 ### dotfiles
 ```
-git clone https://github.com/florobarotjr/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
 ./install.sh
 ```
 

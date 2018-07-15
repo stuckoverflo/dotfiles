@@ -18,8 +18,9 @@ install () {
   echo
 }
 
-install settings.json "$CONFIG_DIR/settings.json"
+install $thisDir/settings.json "$CONFIG_DIR/settings.json"
 
+thisDir=${0%/*}
 while read p; do
     code --install-extension $p
-done <"extensions.txt"
+done <$thisDir/extensions.txt
