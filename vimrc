@@ -12,13 +12,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/vim-gitbranch'
 Plug 'itchyny/lightline.vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
+Plug 'jessedhillon/vim-easycomment'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
-Plug 'jessedhillon/vim-easycomment'
+Plug 'tpope/vim-eunuch'
 
 Plug 'w0rp/ale'
 Plug 'maximbaz/lightline-ale'
@@ -251,9 +250,7 @@ noremap <leader>n :set number!<cr>
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""
 
-" nerdtree
-map <Leader>d :NERDTreeToggle<CR>
-
+" easycomment
 vmap <silent> <C-_> :call ToggleCommentVisual()<CR>
 nmap <silent> <C-_> :call ToggleCommentLine()<CR>
 imap <silent> <C-_> <Esc>:call ToggleCommentLine()
@@ -282,7 +279,11 @@ let g:AutoPairsCenterLine = 0
 " vim-ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
-let b:ale_linters = ['flake8']
+let g:ale_sign_error = '✹'
+let g:ale_sign_warning = '✹'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %code: %%s [%severity%]'
 
 " started In Diff-Mode set diffexpr (plugin not loaded yet)
 if &diff
@@ -321,8 +322,8 @@ function! LightlineReadonly()
 endfunction
 
 let g:lightline#ale#indicator_checking = "\uf110"
-let g:lightline#ale#indicator_warnings = "\uf071"
-let g:lightline#ale#indicator_errors = "\uf05e"
+let g:lightline#ale#indicator_warnings = "\uf071\u0020"
+let g:lightline#ale#indicator_errors = "\uf05e\u0020"
 let g:lightline#ale#indicator_ok = "\uf00c"
 
 " vim-maximizer
