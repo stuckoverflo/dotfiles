@@ -21,6 +21,6 @@ install bashrc .bashrc
 install dircolors .dircolors
 install gitignore .gitignore_global
 install inputrc .inputrc
-install tmux.conf .tmux_conf
+install tmux.conf .tmux.conf
 install vimrc .vimrc
 install zshrc .zshrc
