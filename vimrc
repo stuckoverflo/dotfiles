@@ -361,6 +361,8 @@ let g:scratch_insert_autohide = 0
 let g:scratch_height = 60
 let g:scratch_horizontal = 0
 let g:scratch_top = 0
+nmap gs <esc>:Scratch<cr>
+
 
 " braceless
 autocmd FileType python BracelessEnable +indent
