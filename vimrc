@@ -12,7 +12,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/vim-gitbranch'
 Plug 'itchyny/lightline.vim'
-Plug 'jessedhillon/vim-easycomment'
+Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'sheerun/vim-polyglot'
@@ -31,6 +31,8 @@ Plug 'ajh17/VimCompletesMe'
 Plug 'szw/vim-maximizer'
 
 Plug 'mtth/scratch.vim'
+Plug 'google/vim-searchindex'
+Plug 'romainl/vim-cool'
 
 " test if they will be useful
 Plug 'junegunn/goyo.vim'
@@ -52,7 +54,6 @@ endif
 filetype plugin on
 filetype indent on
 
-
 set background=dark
 color gruvbox
 let g:gruvbox_bold = 0
@@ -65,10 +66,9 @@ set history=1000                " sets how many lines of history VIM has to reme
 
 set autoread                    " set to auto read when a file is changed from the outside
 
-let mapleader = ","             " map comma as leader
-let g:mapleader = ","
+let mapleader = " "             " map space as leader
+let g:mapleader = " "
 
-" set number                      " show line number
 set cursorline                  " highlight current line
 set so=7                        " set 7 lines to the cursor - when moving vertically using j/k
 set wildmenu                    " command completion
@@ -171,9 +171,6 @@ augroup END
 inoremap jj <Esc>:update<CR>
 inoremap jk <Esc>:update<CR>
 
-" toggle pastemode
-set pastetoggle=<F5>
-
 " returns true if paste mode is enabled
 function! HasPaste()
     if &paste
@@ -201,17 +198,15 @@ function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
-" map <Space> to / (search) and ctrl+<Space> to ? (backwards search)
-map <space> :set hlsearch<CR>/
-map <c-@> ?
-
-" toggle highlighting
-noremap <leader><space> :set hlsearch! hlsearch?<CR>
+" automatically turn search highlighting on when searching
+nnoremap / :set hlsearch<CR>/
+nnoremap ? :set hlsearch<CR>?
 
 " remove trailing whitespaces
 noremap <leader><c-@> :%s/\s\+$<CR>
 
-nnoremap <leader>, :update<CR>
+" quick save
+nnoremap ,, :update<CR>
 
 " quickly edit and reload vimrc
 nnoremap <leader>ev :split $MYVIMRC<CR>
@@ -236,14 +231,6 @@ inoremap <C-t> <Esc>:tabnew<CR>
 " Enter mapped to EasyAlign in visual mode
 vnoremap <Enter> :EasyAlign
 
-" keep search pattern at the center of the screen
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
-nnoremap <silent> g# g#zz
-
 " toggle line wrapping
 noremap <leader>w :set wrap!<cr>
 noremap <leader>n :set number!<cr>
@@ -251,26 +238,6 @@ noremap <leader>n :set number!<cr>
 """"""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""
-
-" easycomment
-vmap <silent> <C-_> :call ToggleCommentVisual()<CR>
-nmap <silent> <C-_> :call ToggleCommentLine()<CR>
-imap <silent> <C-_> <Esc>:call ToggleCommentLine()
-
-augroup easyCommentPluginConfig
-  autocmd!
-  au FileType perl let b:comment_style="inline"
-  au FileType perl let b:comment_opener="# "
-  au FileType conf let b:comment_style="inline"
-  au FileType conf let b:comment_opener="# "
-  au FileType bash,sh let b:comment_style="inline"
-  au FileType bash,sh let b:comment_opener="# "
-  au FileType cpp let b:comment_style="block"
-  au FileType cpp let b:comment_opener='/*'
-  au FileType cpp let b:comment_closer='*/'
-  au FileType py let b:comment_style="inline"
-  au FileType py let b:comment_opener="# "
-augroup END
 
 " autoswap config
 let g:autoswap_detect_tmux = 1
@@ -361,8 +328,11 @@ let g:scratch_insert_autohide = 0
 let g:scratch_height = 60
 let g:scratch_horizontal = 0
 let g:scratch_top = 0
-nmap gs <esc>:Scratch<cr>
-
+nnoremap gs <Esc> :Scratch <cr>
+xnoremap gs <Esc> :Scratch <cr>
 
 " braceless
 autocmd FileType python BracelessEnable +indent
+
+" vim-cool
+let g:CoolTotalMatches = 1
