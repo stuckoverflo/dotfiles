@@ -18,3 +18,9 @@ function set_git_email() {
     echo "Configuring user.email as $email"
     git config user.email $email
 }
+
+function fernet_key() {
+    key=`python -c "exec(\"from cryptography.fernet import Fernet\\nprint(Fernet.generate_key().decode())\")"`
+    echo $key | pbcopy
+    echo "$key copied to clipboard!"
+}
