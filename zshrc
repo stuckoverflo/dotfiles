@@ -23,5 +23,6 @@ unset fasd_cache
 source ~/.dotfiles/shell/aliases
 source ~/.dotfiles/shell/utils
 
+setopt hist_ignore_dups
 source ~/.secrets
 alias srcprof="source ~/.zshrc"
