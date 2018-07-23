@@ -2,7 +2,7 @@
 set-option -g status "on"
 
 # default statusbar colors
-set-option -g status-bg colour237 #bg1
+set-option -g status-bg colour235 #bg1
 set-option -g status-fg colour223 #fg1
 
 # default window title colors
@@ -40,20 +40,22 @@ set-window-option -g clock-mode-colour colour109 #blue
 # bell
 set-window-option -g window-status-bell-style fg=colour235,bg=colour167 #bg, red
 
-
 ## Theme settings mixed with colors (unfortunately, but there is no cleaner way)
-set-option -g status-attr "none"
-set-option -g status-justify "left"
-set-option -g status-left-attr "none"
-set-option -g status-left-length "80"
-set-option -g status-right-attr "none"
-set-option -g status-right-length "80"
-set-window-option -g window-status-activity-attr "none"
-set-window-option -g window-status-attr "none"
+set -g status-interval 100
+
+set-option -g status-position top
+set-option -g status-attr nsne
+set-option -g status-justify centre
+set-option -g status-left-attr none
+set-option -g status-left-length 80
+set-option -g status-right-attr none
+set-option -g status-right-length 80
+set-window-option -g window-status-activity-attr none
+set-window-option -g window-status-attr none
 set-window-option -g window-status-separator ""
 
-set-option -g status-left "#{prefix_highlight}#[fg=colour248, bg=colour241] #S #[fg=colour241, bg=colour237, nobold, noitalics, nounderscore]"
-set-option -g status-right "#[fg=colour239, bg=colour237, nobold, nounderscore, noitalics]#[fg=colour246,bg=colour239] %Y-%m-%d  %H:%M #[fg=colour248, bg=colour239, nobold, noitalics, nounderscore]#[fg=colour237, bg=colour248] #h "
+set-option -g status-left ""
+set-option -g status-right "#{prefix_highlight}#[fg=colour248, bg=colour241] #S #[fg=colour241, bg=colour237, nobold, noitalics, nounderscore]"
 
-set-window-option -g window-status-current-format "#[fg=colour239, bg=colour248, :nobold, noitalics, nounderscore]#[fg=colour239, bg=colour214] #I #[fg=colour239, bg=colour214, bold] #W #[fg=colour214, bg=colour237, nobold, noitalics, nounderscore]"
-set-window-option -g window-status-format "#[fg=colour237,bg=colour239,noitalics]#[fg=colour223,bg=colour239] #I #[fg=colour223, bg=colour239] #W #[fg=colour239, bg=colour237, noitalics]"
+set-window-option -g window-status-current-format "#[fg=colour239, bg=colour248, :nobold, noitalics, nounderscore]#[fg=colour239, bg=colour214] #I |#[fg=colour239, bg=colour214, bold] #W #[fg=colour214, bg=colour237, nobold, noitalics, nounderscore]"
+set-window-option -g window-status-format "#[fg=colour237,bg=colour239,noitalics]#[fg=colour223,bg=colour239] #I |#[fg=colour223, bg=colour239] #W #[fg=colour239, bg=colour237, noitalics]"
