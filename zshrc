@@ -23,6 +23,11 @@ unset fasd_cache
 source ~/.dotfiles/shell/aliases
 source ~/.dotfiles/shell/utils
 
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 setopt hist_ignore_dups
 source ~/.secrets
 alias srcprof="source ~/.zshrc"
