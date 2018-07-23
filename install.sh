@@ -24,3 +24,4 @@ install inputrc .inputrc
 install tmux.conf .tmux.conf
 install vimrc .vimrc
 install zshrc .zshrc
+install direnvrc .config/direnv/direnvrc
