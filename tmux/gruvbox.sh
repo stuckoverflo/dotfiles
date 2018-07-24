@@ -55,7 +55,7 @@ set-window-option -g window-status-attr none
 set-window-option -g window-status-separator ""
 
 set-option -g status-left ""
-set-option -g status-right "#{prefix_highlight}#[fg=colour248, bg=colour241] #S #[fg=colour241, bg=colour237, nobold, noitalics, nounderscore]"
+set-option -g status-right "#{prefix_highlight}#[fg=colour248, bg=colour241] #S "
 
-set-window-option -g window-status-current-format "#[fg=colour239, bg=colour248, :nobold, noitalics, nounderscore]#[fg=colour239, bg=colour214] #I |#[fg=colour239, bg=colour214, bold] #W #[fg=colour214, bg=colour237, nobold, noitalics, nounderscore]"
-set-window-option -g window-status-format "#[fg=colour237,bg=colour239,noitalics]#[fg=colour223,bg=colour239] #I |#[fg=colour223, bg=colour239] #W #[fg=colour239, bg=colour237, noitalics]"
+set-window-option -g window-status-current-format "#[fg=colour239, bg=colour248, :nobold, noitalics, nounderscore]#[fg=colour239, bg=colour214] #I |#[fg=colour239, bg=colour214, bold] #W #{?window_zoomed_flag,[Z] ,}#[fg=colour214, bg=colour237, nobold, noitalics, nounderscore]"
+set-window-option -g window-status-format "#[fg=colour237,bg=colour235,noitalics]#[fg=colour223,bg=colour237] #I |#[fg=colour223, bg=colour237] #W #{?window_zoomed_flag,[Z] ,}#[fg=colour239, bg=colour237, noitalics]"
