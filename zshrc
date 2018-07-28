@@ -1,5 +1,6 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export EDITOR=vim
 
 # direnv
 export DIRENV_BASH=/bin/bash
@@ -29,5 +30,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 setopt hist_ignore_dups
-source ~/.secrets
+source ~/.secrets/.secrets
 alias srcprof="source ~/.zshrc"
