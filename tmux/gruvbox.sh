@@ -44,7 +44,7 @@ set-window-option -g window-status-bell-style fg=colour235,bg=colour167 #bg, red
 set -g status-interval 100
 
 set-option -g status-position top
-set-option -g status-attr nsne
+set-option -g status-attr none
 set-option -g status-justify centre
 set-option -g status-left-attr none
 set-option -g status-left-length 80
