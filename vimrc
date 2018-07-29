@@ -218,7 +218,7 @@ nnoremap ? :set hlsearch<CR>?
 noremap <leader><c-@> :%s/\s\+$<CR>
 
 " quick save
-" nnoremap ,, :update<CR>
+nnoremap <leader><space> :update<cr>
 
 " quickly edit and reload vimrc
 nnoremap <leader>ev :split $MYVIMRC<CR>
