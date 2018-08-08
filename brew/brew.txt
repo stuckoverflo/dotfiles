@@ -4,6 +4,7 @@ dos2unix
 fasd
 fd
 git
+gnupg
 grep
 jq
 macvim
@@ -11,7 +12,10 @@ mas
 mysql
 node
 openssl@1.1
+pgformatter
+postgis
 postgresql
+pyenv
 rbenv
 tmux
 tree
