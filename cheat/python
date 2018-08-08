@@ -1,0 +1,10 @@
+# check if number is in between two values
+def teen(n):
+  return 13 <= n <= 19
+
+# profiling code
+import cProfile
+pr = cProfile.Profile()
+pr.enable()
+pr.disable()
+pr.print_stats()

@@ -27,8 +27,8 @@ html5lib==1.0.1           # via bleach
 idna==2.7                 # via cryptography, requests
 ipykernel==4.8.2          # via ipywidgets, jupyter, jupyter-console, notebook, qtconsole
 ipython-genutils==0.2.0   # via nbformat, notebook, qtconsole, traitlets
-ipython==6.4.0            # via ipykernel, ipywidgets, jupyter-console
-ipywidgets==7.3.0         # via jupyter
+ipython==6.5.0            # via ipykernel, ipywidgets, jupyter-console
+ipywidgets==7.3.1         # via jupyter
 isort==4.3.4
 itsdangerous==0.24        # via flask
 jedi==0.12.1              # via ipython
@@ -46,7 +46,7 @@ mistune==0.8.3            # via nbconvert
 nbconvert==5.3.1          # via jupyter, notebook
 nbformat==4.4.0           # via ipywidgets, nbconvert, notebook
 notebook==5.6.0           # via jupyter, widgetsnbextension
-numpy==1.14.5             # via pandas
+numpy==1.15.0             # via pandas
 pandas==0.23.3
 pandocfilters==1.4.2      # via nbconvert
 parso==0.3.1              # via jedi
@@ -55,7 +55,7 @@ pexpect==4.6.0            # via ipython
 pickleshare==0.7.4        # via ipython
 pip-autoremove==0.9.1
 poyo==0.4.1               # via cookiecutter
-prometheus-client==0.3.0  # via notebook
+prometheus-client==0.3.1  # via notebook
 prompt-toolkit==1.0.15    # via ipython, jupyter-console
 ptyprocess==0.6.0         # via pexpect, terminado
 pycodestyle==2.3.1        # via flake8
@@ -79,4 +79,4 @@ wcwidth==0.1.7            # via prompt-toolkit
 webencodings==0.5.1       # via html5lib
 werkzeug==0.14.1          # via flask
 whichcraft==0.4.1         # via cookiecutter
-widgetsnbextension==3.3.0  # via ipywidgets
+widgetsnbextension==3.3.1  # via ipywidgets
