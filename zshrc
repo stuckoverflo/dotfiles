@@ -8,6 +8,11 @@ export DIRENV_BASH=/bin/bash
 eval "$(direnv hook zsh)"
 alias da='direnv allow'
 
+# cheat
+export CHEATCOLORS=true
+export DEFAULT_CHEAT_DIR="$HOME/.dotfiles/cheat/"
+fpath=("~/.dotfiles/zsh/completions/" $fpath)
+
 # slim ZSH
 source ~/.dotfiles/zsh/slimzsh/slim.zsh
 
