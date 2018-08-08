@@ -28,7 +28,6 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'fisadev/vim-isort'
 
 Plug 'chrisbra/vim-diff-enhanced'
-Plug 'gioele/vim-autoswap'
 Plug 'ajh17/VimCompletesMe'
 Plug 'szw/vim-maximizer'
 
@@ -45,8 +44,12 @@ Plug 'fenetikm/falcon'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-peekaboo'
-Plug 'mbbill/undotree'
 Plug 'tweekmonster/braceless.vim'
+Plug 'posva/vim-vue'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'takac/vim-hardtime'
+Plug 'alcesleo/vim-uppercase-sql'
 
 call plug#end()
 
@@ -114,10 +117,10 @@ set nohlsearch                  " turn off highlighting
 
 set noshowmode                  " already taken care of by vim-airline
 
-set swapfile
-set backupdir=~/.vim/backup//   " custom location for vim safety net
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+set directory=/tmp
+set nobackup                    " disable backup
+set nowritebackup               " disable backup
+set noswapfile                  " disable swapfiles
 
 set colorcolumn=120
 
@@ -125,7 +128,7 @@ let python_highlight_all=1
 
 " use hard tabs for Makefile
 au FileType make set noexpandtab
-autocmd FileType typescript,javascript,jsx,tsx,css,html,ruby,elixir,kotlin,vim,plantuml
+autocmd FileType typescript,javascript,jsx,tsx,css,html,ruby,elixir,kotlin,vim,plantuml,vue,json
   \ setlocal expandtab tabstop=2 shiftwidth=2
 setglobal expandtab
 setglobal tabstop=4
@@ -379,3 +382,13 @@ autocmd FileType python BracelessEnable +indent
 
 " vim-cool
 let g:CoolTotalMatches = 1
+
+" ultisnips 
+let g:UltiSnipsExpandTrigger="<C-@>"
+let g:UltiSnipsJumpForwardTrigger="<c-@>"
+let g:UltiSnipsJumpBackwardTrigger="<C-z>"
+
+" vim-hardtime
+let g:hardtime_default_on = 1
+let g:hardtime_maxcount = 3
+let g:hardtime_timeout = 2000
