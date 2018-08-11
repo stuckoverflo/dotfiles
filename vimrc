@@ -49,7 +49,7 @@ Plug 'posva/vim-vue'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'takac/vim-hardtime'
-Plug 'alcesleo/vim-uppercase-sql'
+Plug 'florobarotjr/vim-uppercase-sql'
 
 call plug#end()
 
@@ -123,6 +123,7 @@ set nowritebackup               " disable backup
 set noswapfile                  " disable swapfiles
 
 set colorcolumn=120
+set fillchars=vert:\│
 
 let python_highlight_all=1
 

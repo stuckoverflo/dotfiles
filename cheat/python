@@ -8,3 +8,6 @@ pr = cProfile.Profile()
 pr.enable()
 pr.disable()
 pr.print_stats()
+
+# quoted list elements as string
+list.join("'{0}'".format(w) for w in interlevel['reference_fields']))
