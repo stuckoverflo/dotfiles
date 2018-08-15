@@ -27,3 +27,16 @@ psql -f fileName.backup postgres
 
 # Copy from CSV
 COPY persons(first_name,last_name,dob,email) FROM 'C:\tmp\persons.csv' DELIMITER ',' CSV HEADER;
+
+# Group by with limit
+SELECT
+  * 
+FROM (
+  SELECT
+    ROW_NUMBER() OVER (PARTITION BY section_id ORDER BY name) AS r,
+    t.*
+  FROM
+    xxx t) x
+WHERE
+  x.r <= 2;
+
