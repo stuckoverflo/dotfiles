@@ -8,3 +8,4 @@ isort
 jupyter
 pandas
 pip-autoremove
+py-heat-magic
