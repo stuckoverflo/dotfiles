@@ -13,11 +13,12 @@ bleach==2.1.3             # via nbconvert
 certifi==2018.4.16        # via requests
 cffi==1.11.5              # via cryptography
 chardet==3.0.4            # via binaryornot, requests
+cheat==2.2.3
 click==6.7                # via cookiecutter, flask
 cookiecutter==1.6.0
 cryptography==2.3
 decorator==4.3.0          # via ipython, traitlets
-docopt==0.6.2             # via grip
+docopt==0.6.2             # via cheat, grip
 entrypoints==0.2.3        # via nbconvert
 flake8==3.5.0
 flask==1.0.2              # via grip
@@ -28,7 +29,7 @@ idna==2.7                 # via cryptography, requests
 ipykernel==4.8.2          # via ipywidgets, jupyter, jupyter-console, notebook, qtconsole
 ipython-genutils==0.2.0   # via nbformat, notebook, qtconsole, traitlets
 ipython==6.5.0            # via ipykernel, ipywidgets, jupyter-console
-ipywidgets==7.3.1         # via jupyter
+ipywidgets==7.4.0         # via jupyter
 isort==4.3.4
 itsdangerous==0.24        # via flask
 jedi==0.12.1              # via ipython
@@ -47,7 +48,7 @@ nbconvert==5.3.1          # via jupyter, notebook
 nbformat==4.4.0           # via ipywidgets, nbconvert, notebook
 notebook==5.6.0           # via jupyter, widgetsnbextension
 numpy==1.15.0             # via pandas
-pandas==0.23.3
+pandas==0.23.4
 pandocfilters==1.4.2      # via nbconvert
 parso==0.3.1              # via jedi
 path-and-address==2.0.1   # via grip
@@ -61,10 +62,10 @@ ptyprocess==0.6.0         # via pexpect, terminado
 pycodestyle==2.3.1        # via flake8
 pycparser==2.18           # via cffi
 pyflakes==1.6.0           # via flake8
-pygments==2.2.0           # via grip, ipython, jupyter-console, nbconvert, qtconsole
+pygments==2.2.0           # via cheat, grip, ipython, jupyter-console, nbconvert, qtconsole
 python-dateutil==2.7.3    # via arrow, jupyter-client, pandas
 pytz==2018.5              # via pandas
-pyzmq==17.1.0             # via jupyter-client, notebook
+pyzmq==17.1.2             # via jupyter-client, notebook
 qtconsole==4.3.1          # via jupyter
 requests==2.19.1          # via cookiecutter, grip
 send2trash==1.5.0         # via notebook
@@ -79,4 +80,4 @@ wcwidth==0.1.7            # via prompt-toolkit
 webencodings==0.5.1       # via html5lib
 werkzeug==0.14.1          # via flask
 whichcraft==0.4.1         # via cookiecutter
-widgetsnbextension==3.3.1  # via ipywidgets
+widgetsnbextension==3.4.0  # via ipywidgets
