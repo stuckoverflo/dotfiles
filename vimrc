@@ -128,7 +128,7 @@ set fillchars=vert:\│
 let python_highlight_all=1
 
 " use hard tabs for Makefile
-au FileType make set noexpandtab
+autocmd FileType make setlocal noexpandtab
 autocmd FileType typescript,javascript,jsx,tsx,css,html,ruby,elixir,kotlin,vim,plantuml,vue,json
   \ setlocal expandtab tabstop=2 shiftwidth=2
 setglobal expandtab
@@ -248,8 +248,9 @@ inoremap <C-t> <Esc>:tabnew<CR>
 vnoremap <Enter> :EasyAlign
 
 " toggle line wrapping
-noremap <leader>w :set wrap!<cr>
-noremap <leader>n :set number!<cr>
+nnoremap <leader>w :set wrap!<cr>
+nnoremap <leader>n :set number!<cr>
+nnoremap <leader>r :set relativenumber!<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""
 " Plugins
