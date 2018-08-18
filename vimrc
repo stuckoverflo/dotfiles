@@ -50,6 +50,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'takac/vim-hardtime'
 Plug 'florobarotjr/vim-uppercase-sql'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -394,3 +395,9 @@ let g:UltiSnipsJumpBackwardTrigger="<C-z>"
 let g:hardtime_default_on = 1
 let g:hardtime_maxcount = 3
 let g:hardtime_timeout = 2000
+
+" vim-gitgutter
+set updatetime=100
+let g:gitgutter_override_sign_column_highlight = 0
+let g:gruvbox_sign_column = 'bg0'
+nnoremap <leader>g :GitGutterToggle<cr>
