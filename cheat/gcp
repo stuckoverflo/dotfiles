@@ -1,0 +1,8 @@
+# auth
+gcloud auth login
+
+# view projects
+gcloud projects list
+
+# set project
+gcloud config set project PROJECT_ID
