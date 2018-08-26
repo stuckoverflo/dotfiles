@@ -38,7 +38,6 @@ Plug 'romainl/vim-cool'
 " colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'jacoborus/tender.vim'
-Plug 'fenetikm/falcon'
 
 " test if they will be useful
 Plug 'junegunn/goyo.vim'
