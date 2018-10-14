@@ -47,7 +47,6 @@ Plug 'tweekmonster/braceless.vim'
 Plug 'posva/vim-vue'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'takac/vim-hardtime'
 Plug 'florobarotjr/vim-uppercase-sql'
 Plug 'airblade/vim-gitgutter'
 
@@ -389,11 +388,6 @@ let g:CoolTotalMatches = 1
 let g:UltiSnipsExpandTrigger="<C-@>"
 let g:UltiSnipsJumpForwardTrigger="<c-@>"
 let g:UltiSnipsJumpBackwardTrigger="<C-z>"
-
-" vim-hardtime
-let g:hardtime_default_on = 1
-let g:hardtime_maxcount = 3
-let g:hardtime_timeout = 2000
 
 " vim-gitgutter
 set updatetime=100
