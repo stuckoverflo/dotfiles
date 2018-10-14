@@ -4,3 +4,4 @@ font-ubuntumono-nerd-font-mono
 google-cloud-sdk
 insomnia
 tableau-public
+the-unarchiver
