@@ -1,4 +1,5 @@
 ack
+coreutils
 direnv
 dos2unix
 fasd
