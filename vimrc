@@ -126,13 +126,14 @@ set fillchars=vert:\│
 
 let python_highlight_all=1
 
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
 " use hard tabs for Makefile
 autocmd FileType make setlocal noexpandtab
 autocmd FileType typescript,javascript,jsx,tsx,css,html,ruby,elixir,kotlin,vim,plantuml,vue,json
   \ setlocal expandtab tabstop=2 shiftwidth=2
-setglobal expandtab
-setglobal tabstop=4
-setglobal shiftwidth=4
 
 " F1 is evil
 nnoremap <F1> <Esc>
