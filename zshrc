@@ -38,3 +38,7 @@ fi
 setopt hist_ignore_dups
 source ~/.secrets/.secrets
 alias srcprof="source ~/.zshrc"
+
+# gnu
+export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+alias readlink=greadlink
