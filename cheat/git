@@ -1,9 +1,13 @@
+# Remove all stale branches (ones that have been deleted on remote)
+# So if you have a lot of useless branches, delete them on Github and then run this
+git remote prune origin
+
 # To set your identity:
 git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 
 # To set your editor:
-git config --global core.editor emacs
+git config --global core.editor vim
 
 # To enable color:
 git config --global color.ui true
@@ -132,9 +136,6 @@ git checkout --orphan branch_name
 # Checkout a new branch from a different starting point
 git checkout -b master upstream/master
 
-# Remove all stale branches (ones that have been deleted on remote)
-# So if you have a lot of useless branches, delete them on Github and then run this
-git remote prune origin
 
 # The following can be used to prune all remotes at once
 git remote prune $(git remote | tr '\n' ' ')

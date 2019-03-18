@@ -1,6 +1,9 @@
 # python
 *.pyc
 
+# dotenv
+.env
+
 # application specific files
 venv
 node_modules
