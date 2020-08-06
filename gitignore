@@ -56,3 +56,4 @@ Desktop.ini
 # temp
 matcher.ipynb
 dump.rdb
+secrets/

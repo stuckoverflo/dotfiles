@@ -1,0 +1,2 @@
+# Group by month
+select format_date('%Y-%m', cast(DateCreated as date)) as year_month, count(*) from `merged.cards` group by year_month order by year_month desc

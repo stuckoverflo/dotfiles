@@ -1,3 +1,4 @@
+appcleaner
 font-firacode-nerd-font
 font-iosevka
 font-ubuntumono-nerd-font-mono

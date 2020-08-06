@@ -9,6 +9,8 @@ call plug#begin()
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 
+Plug 'wincent/ferret'
+
 Plug 'itchyny/vim-gitbranch'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
@@ -279,6 +281,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
   \ 'javascript': ['standard'],
   \ 'json': ['fixjson'],
+  \ 'python': ['black'],
   \ }
 
 " started In Diff-Mode set diffexpr (plugin not loaded yet)

@@ -42,3 +42,7 @@ alias srcprof="source ~/.zshrc"
 # gnu
 export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 alias readlink=greadlink
+
+# python
+alias python=python3
+alias pip=pip3
