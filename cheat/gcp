@@ -6,3 +6,12 @@ gcloud projects list
 
 # set project
 gcloud config set project PROJECT_ID
+
+# ssh through iap
+gcloud compute --project "project" ssh --tunnel-through-iap "username@instance"
+
+# bind port
+gcloud compute ssh "instance" --ssh-flag "-L localport:localhost:instanceport"
+
+# gcs sort
+gsutil ls -alr gs://project/bucket/ | sort -k 2
