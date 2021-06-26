@@ -187,6 +187,7 @@ augroup END
 
 " <Esc> alternatives
 inoremap jj <Esc>:update<CR>
+inoremap JJ <Esc>:update<CR>
 inoremap jk <Esc>:update<CR>
 
 " returns true if paste mode is enabled
@@ -231,7 +232,8 @@ nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " copy to clipboard
-noremap <leader>y "*y
+" noremap <leader>y "*y
+noremap <leader>y y
 
 " Enter mapped to : in normal mode
 nnoremap <Enter> :
@@ -404,3 +406,11 @@ let g:gitgutter_sign_modified='┃'
 let g:gitgutter_sign_removed='◢'
 let g:gitgutter_sign_removed_first_line='◥'
 let g:gitgutter_sign_modified_removed='◢'
+
+if system('uname -r') =~ "Microsoft"
+  augroup Yank
+    autocmd!
+    autocmd TextYankPost * :call system('clip.exe ',@")
+  augroup END
+endif
+

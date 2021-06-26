@@ -3,6 +3,12 @@ export LANG=en_US.UTF-8
 export VISUAL=vim
 export EDITOR=$VISUAL
 
+# zsh
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_find_no_dups
+setopt hist_reduce_blanks
+
 # direnv
 export DIRENV_BASH=/bin/bash
 eval "$(direnv hook zsh)"
@@ -35,7 +41,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-setopt hist_ignore_dups
 source ~/.secrets/.secrets
 alias srcprof="source ~/.zshrc"
 
@@ -46,3 +51,15 @@ alias readlink=greadlink
 # python
 alias python=python3
 alias pip=pip3
+
+[ -z "$SSH_AUTH_SOCK"  ] && eval "$(ssh-agent -s)"
+ssh-add .ssh/github
+
+cd
+cls
+
+#export PATH="/home/flo/.pyenv/bin:$PATH"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+
+export PATH="/home/flo/.local/bin:$PATH"
