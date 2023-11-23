@@ -151,8 +151,8 @@ command! -complete=file -bang -nargs=? W  :w<bang> <args>
 command! -complete=file -bang -nargs=? Wq :wq<bang> <args>
 command! -complete=file -bang -nargs=? Wqa :wqa<bang> <args>
 command! -complete=file -bang -nargs=? WQa :wqa<bang> <args>
-command! -complete=file -bang Q :q<bang>
-command! -complete=file -bang Qa :qa<bang>
+command! -complete=file -bang -nargs=? Q :q<bang>
+command! -complete=file -bang -nargs=? Qa :qa<bang>
 
 " disable arrow keys
 noremap <up> :echo "use k"<cr>
