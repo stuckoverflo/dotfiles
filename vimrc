@@ -30,7 +30,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'fisadev/vim-isort'
 
 Plug 'chrisbra/vim-diff-enhanced'
-Plug 'ajh17/VimCompletesMe'
+Plug 'vim-scripts/VimCompletesMe'
 Plug 'szw/vim-maximizer'
 
 Plug 'mtth/scratch.vim'
@@ -49,7 +49,7 @@ Plug 'tweekmonster/braceless.vim'
 Plug 'posva/vim-vue'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'florobarotjr/vim-uppercase-sql'
+Plug 'jsborjesson/vim-uppercase-sql'
 Plug 'airblade/vim-gitgutter'
 
 call plug#end()
