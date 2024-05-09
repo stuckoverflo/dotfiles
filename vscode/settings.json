@@ -1,6 +1,30 @@
 {
-    "workbench.colorTheme": "Gruvbox Dark (Medium)",
-    "editor.fontFamily": "UbuntuMono Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 15,
-    "terminal.integrated.fontSize": 14
+    "editor.fontFamily": "Monaspace Neon, monospace",
+    "editor.fontWeight": "375",
+    "editor.fontLigatures": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08'",
+    "workbench.startupEditor": "none",
+    "workbench.sideBar.location": "right",
+    "workbench.activityBar.location": "hidden",
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.overviewRulerBorder": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "breadcrumbs.enabled": false,
+    "workbench.tree.renderIndentGuides": "none",
+    "explorer.openEditors.visible": 0,
+    "editor.bracketPairColorization.enabled": false,
+    "editor.guides.highlightActiveBracketPair": false,
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.guides.indentation": false,
+    "editor.cursorBlinking": "phase",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.glyphMargin": false,
+    "editor.lineNumbers": "on",
+    "window.menuBarVisibility": "toggle",
+    "workbench.layoutControl.type": "menu",
+    "workbench.layoutControl.enabled": false,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "files.eol": "\n"
 }
