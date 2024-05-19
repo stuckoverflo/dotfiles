@@ -1,3 +1,0 @@
-[submodule "zsh/slimzsh"]
-	path = zsh/slimzsh
-	url = git@github.com:changs/slimzsh.git
