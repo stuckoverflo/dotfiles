@@ -19,9 +19,6 @@ export CHEATCOLORS=true
 export DEFAULT_CHEAT_DIR="$HOME/.dotfiles/cheat/"
 fpath=("~/.dotfiles/zsh/completions/" $fpath)
 
-# slim ZSH
-# source ~/.dotfiles/zsh/slimzsh/slim.zsh
-
 # fasd
 fasd_cache="$HOME/.fasd-init-zsh"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
@@ -54,9 +51,6 @@ alias pip=pip3
 
 [ -z "$SSH_AUTH_SOCK"  ] && eval "$(ssh-agent -s)"
 ssh-add .ssh/github
-
-cd
-cls
 
 #export PATH="/home/flo/.pyenv/bin:$PATH"
 #eval "$(pyenv init -)"
