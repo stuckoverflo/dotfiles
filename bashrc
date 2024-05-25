@@ -26,3 +26,5 @@ source "$fasd_cache"
 unset fasd_cache
 
 alias srcprof="source ~/.bashrc"
+
+. "$HOME/.cargo/env"
