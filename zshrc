@@ -55,13 +55,10 @@ alias pip=pip3
 [ -z "$SSH_AUTH_SOCK"  ] && eval "$(ssh-agent -s)"
 ssh-add .ssh/github
 
-cd
-cls
-
 #export PATH="/home/flo/.pyenv/bin:$PATH"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 
 export PATH="/home/flo/.local/bin:$PATH"
-
 . "$HOME/.cargo/env"
+
