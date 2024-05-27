@@ -16,7 +16,6 @@ alias ll="ls -alh"
 alias lll="ls -haltr"
 alias lg="lll | grep -i"
 
-alias grep="grep --color -E "$1" $2"
 alias lo="logout"
 alias cls="clear"
 alias wcl="wc -l"
