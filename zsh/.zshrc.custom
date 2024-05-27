@@ -1,8 +1,8 @@
 # zsh
-setopt hist_ignore_dups
-setopt hist_ignore_all_dups
-setopt hist_find_no_dups
-setopt hist_reduce_blanks
+setopt share_history # shares history across all shell instances
+setopt hist_ignore_all_dups # ignore duplicate entry to the hist file
+setopt hist_find_no_dups # skip duplicates on search
+setopt hist_reduce_blanks # trim the command string before saving to hist
 
 # direnv
 export DIRENV_BASH=/bin/bash
