@@ -9,6 +9,7 @@ gnupg
 grep
 jq
 mas
+nvim
 postgresql
 pyenv
 tmux
