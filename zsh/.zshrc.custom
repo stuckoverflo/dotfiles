@@ -103,10 +103,15 @@ export PATH="/home/flo/go/bin:$PATH"
 
 . "$HOME/.cargo/env"
 
+#zoxide
+eval "$(zoxide init zsh)"
+alias cd="z"
+
 #eza
 alias ls="eza --long --icons=always --color=always --no-permissions --group-directories-first"
 
 #bat
 export BAT_THEME=tokyonight_storm
 
+#starship prompt
 eval "$(starship init zsh)"
