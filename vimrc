@@ -362,20 +362,6 @@ nnoremap <silent> <TAB> :call fzf#run({
 
 noremap <c-p> :FZF <cr>
 
-" Z - fzf to recent / frequent directories
-command! -nargs=* Z :call Z(<f-args>)
-function! Z(...)
-  let cmd = 'fasd -d -e printf'
-  for arg in a:000
-    let cmd = cmd . ' ' . arg
-  endfor
-  let path = system(cmd)
-  if isdirectory(path)
-    echo path
-    exec 'FZF' fnameescape(path)
-  endif
-endfunction
-
 " scratch plugin
 let g:scratch_insert_autohide = 0
 let g:scratch_height = 60
