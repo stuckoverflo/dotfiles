@@ -12,7 +12,7 @@ install () {
   fi
   if ([ ! -e "$HOME/$2" ] || [[ $CONFIRM =~ ^[Yy]$ ]]); then
     rm -r $HOME/$2 > /dev/null 2>&1
-    ln -s `pwd`/$1 $HOME/$2 && echo $2 $I$R
+    ln -sf `pwd`/$1 $HOME/$2 && echo $2 $I$R
   fi
   echo
 }
@@ -24,4 +24,10 @@ install .inputrc .inputrc
 install .tmux.conf .tmux.conf
 install .vimrc .vimrc
 install .zshrc .zshrc
+
+mkdir -p $HOME/.config/nvim
+install .config/nvim .config/nvim
+
+mkdir -p $HOME/.config/direnv
 install .config/direnv/direnvrc .config/direnv/direnvrc
+
