@@ -17,12 +17,12 @@ install () {
   echo
 }
 
-install bashrc .bashrc
-install dircolors .dircolors
-install gitignore .gitignore_global
-install inputrc .inputrc
-install tmux.conf .tmux.conf
-install vimrc .vimrc
-install zshrc .zshrc
-install direnvrc .config/direnv/direnvrc
-install python/flake8 .config/flake8
+install .bashrc .bashrc
+install .dircolors .dircolors
+install .gitignore_global .gitignore_global
+install .inputrc .inputrc
+install .tmux.conf .tmux.conf
+install .vimrc .vimrc
+install .zshrc .zshrc
+install .direnvrc .config/direnv/direnvrc
+install .python/flake8 .config/flake8
