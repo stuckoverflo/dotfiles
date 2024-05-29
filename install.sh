@@ -25,4 +25,3 @@ install .tmux.conf .tmux.conf
 install .vimrc .vimrc
 install .zshrc .zshrc
 install .direnvrc .config/direnv/direnvrc
-install .python/flake8 .config/flake8
