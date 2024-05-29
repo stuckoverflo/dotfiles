@@ -22,7 +22,7 @@ Install the following:
 
 ## macOS
 
-- brew
+- [brew](https://brew.sh/)
 
 ## font
 
@@ -32,7 +32,10 @@ Install the following:
 ## prompt
 
 - [Starship](https://starship.rs/)
-  - `starship preset nerd-font-symbols -o ~/.config/starship.toml`
+
+```
+starship preset nerd-font-symbols -o ~/.config/starship.toml
+```
 
 ## dotfiles
 
