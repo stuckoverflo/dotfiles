@@ -57,9 +57,6 @@ alias readlink=greadlink
 alias python=python3
 alias pip=pip3
 
-[ -z "$SSH_AUTH_SOCK"  ] && eval "$(ssh-agent -s)"
-ssh-add .ssh/github
-
 #export PATH="/home/flo/.pyenv/bin:$PATH"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
@@ -70,4 +67,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source $HOME/.cargo/env
-source .dotfiles/zsh/.zshrc.custom
+source $HOME/.dotfiles/zsh/.zshrc.custom
