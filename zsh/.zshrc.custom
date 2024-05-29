@@ -104,8 +104,7 @@ export PATH="/home/flo/go/bin:$PATH"
 . "$HOME/.cargo/env"
 
 #zoxide
-eval "$(zoxide init zsh)"
-alias cd="z"
+eval "$(zoxide init zsh --cmd j)"
 
 #eza
 alias ls="eza --long --icons=always --color=always --no-permissions --group-directories-first"
