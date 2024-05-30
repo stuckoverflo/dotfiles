@@ -4,6 +4,7 @@ Install the following:
 
 - [rust](https://www.rust-lang.org/)
 - [bat](https://github.com/sharkdp/bat)
+  - [theme](https://github.com/folke/tokyonight.nvim/issues/23)
 - [delta](https://github.com/dandavison/delta)
 - [eza](https://github.com/eza-community/eza)
 - [fd](https://github.com/sharkdp/fd)
