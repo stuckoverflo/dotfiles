@@ -1,2 +1,2 @@
-require("flo.core")
-require("flo.lazy")
+require("core")
+require("core.lazy")
