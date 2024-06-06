@@ -25,10 +25,11 @@ Install the following:
 
 - [brew](https://brew.sh/)
 
-## font
+## fonts
 
 - [Cascadia Code](https://github.com/microsoft/cascadia-code)
 - [Monaspace](https://github.com/githubnext/monaspace/)
+- [Atkinson Hyperlegible](https://brailleinstitute.org/freefont)
 
 ## prompt
 
