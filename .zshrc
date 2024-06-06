@@ -107,7 +107,7 @@ export NVM_DIR="$HOME/.nvm"
 source $HOME/.cargo/env
 
 # zoxide
-eval "$(zoxide init zsh --cmd j)"
+eval "$(zoxide init zsh --cmd cd)"
 
 # eza
 alias ls="eza --long --icons=always --color=always --no-permissions --group-directories-first"
