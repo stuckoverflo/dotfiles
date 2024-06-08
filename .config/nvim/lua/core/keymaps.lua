@@ -5,6 +5,9 @@ local keymap = vim.keymap
 keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jj" })
 keymap.set("n", "<leader> ", ":update<CR>", { desc = "Save the current buffer" })
 
+keymap.set("n", "j", "gj", { desc = "Treat long lines as break lines" })
+keymap.set("n", "k", "gk", { desc = "Treat long lines as break lines" })
+
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 keymap.set("n", "sv", "<C-w>v", { desc = "Split window vertically" })
