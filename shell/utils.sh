@@ -32,3 +32,12 @@ function get_bq_load_log() {
     job_id=$1
     bq --format=prettyjson show -j $job_id
 }
+
+function git() {
+    if [[ "$(pwd)" == "/mnt/c/obsidian/notes" ]]; then
+        git.exe "$@"
+    else
+        command git "$@"
+    fi
+}
+

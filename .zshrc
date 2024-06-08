@@ -15,8 +15,8 @@ export PATH="/home/flo/go/bin:$PATH"
 alias python=python3
 alias pip=pip3
 alias srcprof="source ~/.zshrc"
-source ~/.dotfiles/shell/aliases
-source ~/.dotfiles/shell/utils
+source ~/.dotfiles/shell/aliases.sh
+source ~/.dotfiles/shell/utils.sh
 
 # zsh
 setopt hist_ignore_dups
