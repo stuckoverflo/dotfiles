@@ -12,7 +12,6 @@ opt.autoindent = true -- copy indent from current line when starting a new one
 
 opt.wrap = false
 
--- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- assume case-sensitive when mixed case
 
@@ -27,6 +26,5 @@ opt.backspace = "indent,eol,start"
 
 opt.clipboard:append("unnamedplus") -- use system clipboard on yank
 
---split windows
 opt.splitright = true -- vertical split always to the right
 opt.splitbelow = true -- horizontal split always to the bottom
