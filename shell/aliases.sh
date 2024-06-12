@@ -1,12 +1,4 @@
-alias ..="cd .."
-alias ..2="cd ../.."
-alias ..3="cd ../../.."
-alias ..4="cd ../../../.."
-alias ..5="cd ../../../../.."
-
-# typos
 alias dc=cd
-alias emacs=vim
 alias sl=ls
 alias gerp=grep
 alias grpe=grep
@@ -31,4 +23,8 @@ alias python_makefile="curl -sL git.io/py_makefile > Makefile"
 alias gr='cd $(git rev-parse --show-toplevel)'
 
 # nvim
-alias vim='nvim'
+alias vim=nvim
+alias emacs=nvim
+
+#obsidian
+alias sb='cd notes'
