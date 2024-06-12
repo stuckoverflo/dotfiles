@@ -10,6 +10,7 @@ export EDITOR=$VISUAL
 # PATH
 export PATH="/home/flo/.local/bin:$PATH"
 export PATH="/home/flo/go/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
 
 # aliases
 alias python=python3
