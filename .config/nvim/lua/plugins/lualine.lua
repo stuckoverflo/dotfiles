@@ -7,7 +7,8 @@ return {
 
     lualine.setup({
       options = {
-        theme = 'tokyonight',
+        theme = "tokyonight",
+        section_separators = { left = "", right = "" },
       },
       sections = {
         lualine_x = {
@@ -24,4 +25,3 @@ return {
     })
   end,
 }
-
