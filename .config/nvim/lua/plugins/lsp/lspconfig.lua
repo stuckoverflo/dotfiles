@@ -85,6 +85,18 @@ return {
           capabilities = capabilities,
         })
       end,
+      ["gopls"] = function()
+        -- configure go language server
+        lspconfig["gopls"].setup({
+          capabilities = capabilities,
+          filetypes = { "go" },
+          settings = {
+            gopls = {
+              gofumpt = true,
+            },
+          },
+        })
+      end,
       ["graphql"] = function()
         -- configure graphql language server
         lspconfig["graphql"].setup({

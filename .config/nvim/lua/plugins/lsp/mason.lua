@@ -37,6 +37,7 @@ return {
         "emmet_ls",
         "prismals",
         "pyright",
+        "gopls",
         "golangci_lint_ls",
         "helm_ls",
       },
@@ -51,6 +52,7 @@ return {
         "pylint",
         "eslint_d",
         "golangci-lint",
+        "gofumpt",
       },
     })
   end,
