@@ -17,7 +17,6 @@ opt.smartcase = true -- assume case-sensitive when mixed case
 
 opt.cursorline = true
 
--- turn on termguicolors
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
@@ -28,3 +27,7 @@ opt.clipboard:append("unnamedplus") -- use system clipboard on yank
 
 opt.splitright = true -- vertical split always to the right
 opt.splitbelow = true -- horizontal split always to the bottom
+
+opt.scrolloff = 8
+
+opt.guicursor = ""
