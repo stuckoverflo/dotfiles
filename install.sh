@@ -22,6 +22,8 @@ install .dircolors .dircolors
 install .gitignore_global .gitignore_global
 install .inputrc .inputrc
 install .tmux.conf .tmux.conf
+install .tmux-cht-languages .tmux-cht-languages
+install .tmux-cht-commands .tmux-cht-commands
 install .vimrc .vimrc
 install .zshrc .zshrc
 

@@ -43,4 +43,9 @@ starship preset nerd-font-symbols -o ~/.config/starship.toml
 
 ```
 ./install.sh
+
 ```
+
+## scripts
+
+In the `scripts` folder, run `chmod +x` in the scripts that we want to be executable
