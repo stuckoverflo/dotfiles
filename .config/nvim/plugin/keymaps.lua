@@ -39,3 +39,4 @@ keymap.set(
 
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Smartly move highlighted lines of code" })
 keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Smartly move highlighted lines of code" })
+keymap.set("n", "<space>cht", "<cmd>cht.sh<cr>")
