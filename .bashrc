@@ -1,5 +1,5 @@
-source ~/.dotfiles/shell/aliases.sh
-source ~/.dotfiles/shell/utils.sh
+source ~/.dotfiles/scripts/aliases.sh
+source ~/.dotfiles/scripts/utils.sh
 
 source ~/.dotfiles/bash/prompt
 
