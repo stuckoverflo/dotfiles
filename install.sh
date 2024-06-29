@@ -24,6 +24,7 @@ install .inputrc .inputrc
 install .tmux.conf .tmux.conf
 install .tmux-cht-languages .tmux-cht-languages
 install .tmux-cht-commands .tmux-cht-commands
+install .wezterm.lua .wezterm.lua
 install .vimrc .vimrc
 install .zshrc .zshrc
 
@@ -33,3 +34,8 @@ install .config/nvim .config/nvim
 mkdir -p $HOME/.config/direnv
 install .config/direnv/direnvrc .config/direnv/direnvrc
 
+mkdir -p $HOME/.config/yabai
+install .config/yabai/yabairc .config/yabai/yabairc
+
+mkdir -p $HOME/.config/skhd
+install .config/skhd/skhdrc .config/skhd/skhdrc
