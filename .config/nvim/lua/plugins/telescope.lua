@@ -17,6 +17,8 @@ return {
     -- Exclude `.git` in search
     table.insert(vimgrep_arguments, "--glob")
     table.insert(vimgrep_arguments, "!**/.git/*")
+    table.insert(vimgrep_arguments, "--glob")
+    table.insert(vimgrep_arguments, "!**/.obsidian/*")
 
     telescope.setup({
       defaults = {
@@ -31,7 +33,7 @@ return {
       },
       pickers = {
         find_files = {
-          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*", "--glob", "!**/.obsidian/*" },
         },
       },
     })
