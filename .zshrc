@@ -1,7 +1,6 @@
 # oh my zsh
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 export VISUAL=nvim
@@ -115,3 +114,10 @@ if uname -r | grep -q "WSL"; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   export PATH="/home/linuxbrew/.linuxbrew/opt/node@20/bin:$PATH"
 fi
+
+if uname | grep -q "Darwin"; then
+  export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+fi
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
