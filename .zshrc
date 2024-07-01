@@ -98,9 +98,6 @@ alias readlink=greadlink
 
 export PATH="/home/flo/.local/bin:$PATH"
 
-# cargo
-source $HOME/.cargo/env
-
 # zoxide
 eval "$(zoxide init zsh --cmd cd)"
 
@@ -112,3 +109,9 @@ export BAT_THEME=tokyonight_storm
 
 # starship prompt
 eval "$(starship init zsh)"
+
+if uname -r | grep -q "WSL"; then
+  source $HOME/.cargo/env
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  export PATH="/home/linuxbrew/.linuxbrew/opt/node@20/bin:$PATH"
+fi
