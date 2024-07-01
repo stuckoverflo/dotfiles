@@ -20,6 +20,7 @@ Install the following:
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - `tree`
 - [zoxide](https://github.com/ajeetdsouza/zoxide)
+- [yabai](https://github.com/koekeishiya/yabai) and [skhd](https://github.com/koekeishiya/skhd)
 
 ## macOS
 
