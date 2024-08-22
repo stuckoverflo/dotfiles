@@ -1,5 +1,3 @@
-# -- Changing Window Focus --
-
 # change window focus within space
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
@@ -9,6 +7,11 @@ alt - l : yabai -m window --focus east
 #change focus between external displays (left and right)
 alt - s: yabai -m display --focus west
 alt - g: yabai -m display --focus east
+shift + ctrl + cmd + alt - b : yabai -m display --focus recent
+
+# move window to display left and right
+shift + ctrl + cmd + alt - s : yabai -m window --display west; yabai -m display --focus west;
+shift + ctrl + cmd + alt - g : yabai -m window --display east; yabai -m display --focus east;
 
 # -- Modifying the Layout --
 
@@ -46,11 +49,6 @@ ctrl + alt - j : yabai -m window --warp south
 ctrl + alt - k : yabai -m window --warp north
 ctrl + alt - h : yabai -m window --warp west
 ctrl + alt - l : yabai -m window --warp east
-
-# move window to display left and right
-shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
-shift + alt - g : yabai -m window --display east; yabai -m display --focus east;
-
 
 # move window to prev and next space
 shift + alt - p : yabai -m window --space prev;
