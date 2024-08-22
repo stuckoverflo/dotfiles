@@ -27,6 +27,7 @@ install .tmux-cht-commands .tmux-cht-commands
 install .wezterm.lua .wezterm.lua
 install .vimrc .vimrc
 install .zshrc .zshrc
+install .aerospace.toml .aerospace.toml
 
 mkdir -p $HOME/.config/nvim
 install .config/nvim .config/nvim
