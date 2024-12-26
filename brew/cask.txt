@@ -1,7 +1,0 @@
-1password
-arc
-google-cloud-sdk
-insomnia
-obsidian
-raycast
-todoist
