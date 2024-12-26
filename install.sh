@@ -40,3 +40,5 @@ install .config/yabai/yabairc .config/yabai/yabairc
 
 mkdir -p $HOME/.config/skhd
 install .config/skhd/skhdrc .config/skhd/skhdrc
+
+git config --global alias.d 'difftool -t nvimdiff -y'
