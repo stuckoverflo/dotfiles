@@ -88,6 +88,11 @@ outer.right =      8
 # end tell'
 # '''
 
+# Disable "hide application" shortcut
+cmd-h = []
+cmd-alt-h = []
+cmd-m = []
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
@@ -220,3 +225,9 @@ run = 'move-node-to-workspace S'
 [[on-window-detected]]
 if.app-id = 'us.zoom.xos'
 run = 'move-node-to-workspace Z'
+
+# Workspace to monitor bindings
+[workspace-to-monitor-force-assignment]
+D = 'secondary'
+Z = 'secondary'
+Q = 'secondary'
