@@ -28,3 +28,6 @@ alias emacs=nvim
 
 #obsidian
 alias sb='cd notes'
+
+#git
+alias gr='cd $(git rev-parse --show-toplevel)'
