@@ -123,7 +123,7 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/fbarotapexclearing.com/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fbarotapexclearing.com/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/fbarot/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fbarot/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/fbarotapexclearing.com/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fbarotapexclearing.com/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/fbarot/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fbarot/google-cloud-sdk/completion.zsh.inc'; fi
