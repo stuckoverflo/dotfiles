@@ -31,3 +31,6 @@ alias sb='cd notes'
 
 #git
 alias gr='cd $(git rev-parse --show-toplevel)'
+
+#terraform
+alias tf=terraform
