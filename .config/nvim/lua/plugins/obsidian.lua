@@ -20,7 +20,7 @@ return {
     workspaces = {
       {
         name = "main",
-        path = "/mnt/c/obsidian/notes/",
+        path = os.getenv("NOTES_DIR"),
       },
     },
     templates = {
