@@ -59,63 +59,56 @@ return {
       end,
     })
 
-
     -- Customize the symbols for different types of diagnostics in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      vim.diagnostic.config({
+        signs = {
+          text = icon,
+          texthl = hl,
+          numhl = "",
+        },
+      })
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    require("mason-lspconfig").setup_handlers({
-      -- default handler for installed servers
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
-      ["gopls"] = function()
-        lspconfig["gopls"].setup({
-          capabilities = capabilities,
-          filetypes = { "go" },
-          settings = {
-            gopls = {
-              gofumpt = true,
-            },
+    -- setup gopls using new mason-lspconfig handler
+    vim.lsp.config("gopls", {
+      capabilities = capabilities,
+      filetypes = { "go" },
+      settings = {
+        gopls = {
+          gofumpt = true, -- use gofumpt for formatting
+        },
+      },
+    })
+
+    vim.lsp.config("emmet_ls", {
+      capabilities = capabilities,
+      filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+    })
+
+    vim.lsp.config("lua_ls", {
+      capabilities = capabilities,
+      settings = {
+        Lua = {
+          -- make the language server recognize "vim" global
+          diagnostics = {
+            globals = { "vim" },
           },
-        })
-      end,
-      ["graphql"] = function()
-        lspconfig["graphql"].setup({
-          capabilities = capabilities,
-          filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-        })
-      end,
-      ["emmet_ls"] = function()
-        lspconfig["emmet_ls"].setup({
-          capabilities = capabilities,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-        })
-      end,
-      ["lua_ls"] = function()
-        lspconfig["lua_ls"].setup({
-          capabilities = capabilities,
-          settings = {
-            Lua = {
-              -- make the language server recognize "vim" global
-              diagnostics = {
-                globals = { "vim" },
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
-            },
+          completion = {
+            callSnippet = "Replace", -- use "Replace" to replace the snippet with the function call
           },
-        })
-      end,
+        },
+      },
+    })
+
+    vim.lsp.config("graphql", {
+      capabilities = capabilities,
+      filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
     })
   end,
 }
