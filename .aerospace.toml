@@ -231,7 +231,6 @@ run = 'move-node-to-workspace Z'
 
 # Workspace to monitor bindings
 [workspace-to-monitor-force-assignment]
-D = 'secondary'
 Z = 'secondary'
 Q = 'secondary'
 B = 'secondary'
