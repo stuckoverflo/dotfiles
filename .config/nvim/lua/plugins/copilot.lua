@@ -25,10 +25,10 @@ return {
         hide_during_completion = true,
         debounce = 75,
         keymap = {
-          accept = "<C-]>",
+          accept = "<M-]>",
           accept_word = false,
           accept_line = false,
-          next = "<M-]>",
+          next = "<C-]>",
           prev = "<M-[>",
           dismiss = "<M-l>",
         },
@@ -42,6 +42,7 @@ return {
         hgcommit = false,
         svn = false,
         cvs = false,
+        md = false,
         ["."] = false,
       },
       copilot_node_command = "node", -- Node.js version must be > 18.x
