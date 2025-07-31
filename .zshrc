@@ -1,4 +1,4 @@
-# oh my zsh
+# ZSHRC_START_TIME=$(date +%s%N)
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 source $ZSH/oh-my-zsh.sh
@@ -86,11 +86,6 @@ _fzf_comprun() {
 
 # source ~/fzf-git.sh/fzf-git.sh
 
-# pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
 # gnu-getopt
 export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 alias readlink=greadlink
@@ -127,3 +122,7 @@ if [ -f '/Users/fbarot/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fbarot/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/fbarot/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fbarot/google-cloud-sdk/completion.zsh.inc'; fi
+
+# ZSHRC_END_TIME=$(date +%s%N)
+# ZSHRC_DURATION=$(( ($ZSHRC_END_TIME - $ZSHRC_START_TIME)/1000000 ))
+# echo "zshrc loaded in ${ZSHRC_DURATION} ms"
