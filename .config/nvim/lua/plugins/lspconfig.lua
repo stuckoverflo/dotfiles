@@ -110,5 +110,10 @@ return {
       capabilities = capabilities,
       filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
     })
+    -- :lua vim.diagnostic.config({ virtual_text = false })
+    vim.keymap.set("n", "<leader>dd", function()
+      local current = vim.diagnostic.config().virtual_text
+      vim.diagnostic.config({ virtual_text = not current })
+    end, { desc = "Toggle LSP diagnostics virtual text" })
   end,
 }
