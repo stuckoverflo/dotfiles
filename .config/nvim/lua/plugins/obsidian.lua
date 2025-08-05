@@ -1,6 +1,6 @@
 return {
-  "epwalsh/obsidian.nvim",
-  version = "*", -- recommended, use latest release instead of latest commitobsidi
+  "obsidian-nvim/obsidian.nvim",
+  version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
   ft = "markdown",
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
@@ -11,12 +11,14 @@ return {
   --   "BufNewFile path/to/my-vault/**.md",
   -- },
   dependencies = {
-    "nvim-lua/plenary.nvim", -- required
     "hrsh7th/nvim-cmp",
     "nvim-telescope/telescope.nvim",
     "nvim-treesitter",
+    -- "OXY2DEV/markview.nvim",
+    "MeanderingProgrammer/render-markdown.nvim",
   },
   opts = {
+    legacy_commands = false,
     workspaces = {
       {
         name = "main",
@@ -44,30 +46,43 @@ return {
       nvim_cmp = true,
       min_chars = 2,
     },
-    new_notes_location = "00-inbox",
-    mappings = {
-      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-      ["<leader>gf"] = {
-        action = function()
-          return require("obsidian").util.gf_passthrough()
-        end,
-        opts = { noremap = false, expr = true, buffer = true },
-      },
-      -- Toggle check-boxes.
-      ["<leader>ch"] = {
-        action = function()
-          return require("obsidian").util.toggle_checkbox()
-        end,
-        opts = { buffer = true },
-      },
-      -- Smart action depending on context, either follow link or toggle checkbox.
-      ["<cr>"] = {
-        action = function()
-          return require("obsidian").util.smart_action()
-        end,
-        opts = { buffer = true, expr = true },
-      },
+    new_notes_location = "99-work",
+    callbacks = {
+      enter_note = function(_, note)
+        vim.keymap.set("n", "<leader>gf", function()
+          return require("obsidian").util.gf_passthrough(note)
+        end, { noremap = false, expr = true, buffer = note.bufnr })
+        vim.keymap.set("n", "<leader>ch", function()
+          return require("obsidian").util.toggle_checkbox(note)
+        end, { buffer = note.bufnr })
+        vim.keymap.set("n", "<cr>", function()
+          return require("obsidian").util.smart_action(note)
+        end, { buffer = note.bufnr, expr = true })
+      end,
     },
+    -- mappings = {
+    --   -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+    --   ["<leader>gf"] = {
+    --     action = function()
+    --       return require("obsidian").util.gf_passthrough()
+    --     end,
+    --     opts = { noremap = false, expr = true, buffer = true },
+    --   },
+    --   -- Toggle check-boxes.
+    --   ["<leader>ch"] = {
+    --     action = function()
+    --       return require("obsidian").util.toggle_checkbox()
+    --     end,
+    --     opts = { buffer = true },
+    --   },
+    --   -- Smart action depending on context, either follow link or toggle checkbox.
+    --   ["<cr>"] = {
+    --     action = function()
+    --       return require("obsidian").util.smart_action()
+    --     end,
+    --     opts = { buffer = true, expr = true },
+    --   },
+    -- },
     disable_frontmatter = true,
   },
 }
