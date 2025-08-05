@@ -123,6 +123,9 @@ if [ -f '/Users/fbarot/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fbarot/g
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/fbarot/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fbarot/google-cloud-sdk/completion.zsh.inc'; fi
 
+# tms config
+export TMS_CONFIG_FILE="$HOME/.config/tms/config.toml"
+
 # ZSHRC_END_TIME=$(date +%s%N)
 # ZSHRC_DURATION=$(( ($ZSHRC_END_TIME - $ZSHRC_START_TIME)/1000000 ))
 # echo "zshrc loaded in ${ZSHRC_DURATION} ms"
