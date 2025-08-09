@@ -9,13 +9,13 @@ return {
   opts = {
     -- add any options here
     messages = {
-      enabled = false,
+      enabled = true,
     },
     popupmenu = {
-      enabled = false,
+      enabled = true,
     },
     notify = {
-      enabled = false,
+      enabled = true,
     },
     lsp = {
       override = {
