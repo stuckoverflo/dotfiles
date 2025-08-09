@@ -23,7 +23,7 @@ opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 opt.backspace = "indent,eol,start"
 
-opt.clipboard:append("unnamedplus") -- use system clipboard on yank
+-- opt.clipboard:append("unnamedplus") -- use system clipboard on yank
 
 opt.splitright = true -- vertical split always to the right
 opt.splitbelow = true -- horizontal split always to the bottom
