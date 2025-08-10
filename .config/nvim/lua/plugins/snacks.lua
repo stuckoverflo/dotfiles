@@ -5,7 +5,7 @@ return {
   ---@type snacks.Config
   opts = {
     input = {
-      enabled = true,
+      enabled = false,
       icon = " ",
       icon_hl = "SnacksInputIcon",
       icon_pos = "left",

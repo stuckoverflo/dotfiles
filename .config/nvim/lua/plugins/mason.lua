@@ -27,25 +27,16 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "cssls",
-        "emmet_ls",
         "gopls",
         "golangci_lint_ls",
-        "graphql",
-        "helm_ls",
-        "html",
         "lua_ls",
-        "prismals",
         "pyright",
-        "svelte",
-        "tailwindcss",
       },
     })
 
     mason_tool_installer.setup({
       ensure_installed = {
         "black", -- python formatter
-        "eslint_d",
         "golangci-lint",
         "gofumpt",
         "isort", -- python formatter

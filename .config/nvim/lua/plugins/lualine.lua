@@ -6,11 +6,13 @@ return {
       options = {
         theme = "auto",
         transparent = true,
-        -- section_separators = { left = "", right = "" },
-        section_separators = "",
+        -- section_separators = "",
         component_separators = "",
+        section_separators = { left = "", right = "" },
+        -- component_separators = { left = "", right = "" },
       },
       sections = {
+        lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
         lualine_x = {
           {
             require("lazy.status").updates,
@@ -21,6 +23,7 @@ return {
           { "fileformat" },
           { "filetype" },
         },
+        lualine_z = { { "location", separator = { right = "" }, left_padding = 2 } },
       },
     })
   end,

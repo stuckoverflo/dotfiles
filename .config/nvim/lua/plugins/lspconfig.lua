@@ -59,18 +59,17 @@ return {
       end,
     })
 
-    -- Customize the symbols for different types of diagnostics in the sign column (gutter)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.diagnostic.config({
-        signs = {
-          text = icon,
-          texthl = hl,
-          numhl = "",
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.HINT] = "󰠠",
         },
-      })
-    end
+      },
+      underline = false,
+    })
 
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -84,11 +83,6 @@ return {
           gofumpt = true, -- use gofumpt for formatting
         },
       },
-    })
-
-    vim.lsp.config("emmet_ls", {
-      capabilities = capabilities,
-      filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
     })
 
     vim.lsp.config("lua_ls", {
@@ -106,10 +100,6 @@ return {
       },
     })
 
-    vim.lsp.config("graphql", {
-      capabilities = capabilities,
-      filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-    })
     -- :lua vim.diagnostic.config({ virtual_text = false })
     vim.keymap.set("n", "<leader>dd", function()
       local current = vim.diagnostic.config().virtual_text
