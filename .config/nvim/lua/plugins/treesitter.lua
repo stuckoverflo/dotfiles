@@ -2,9 +2,6 @@ return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
-  dependencies = {
-    "windwp/nvim-ts-autotag",
-  },
   config = function()
     require("nvim-treesitter.configs").setup({
       highlight = {
@@ -17,21 +14,20 @@ return {
         "dockerfile",
         "gitignore",
         "go",
-        "graphql",
-        "helm",
         "html",
         "json",
         "javascript",
         "lua",
         "markdown",
         "markdown_inline",
+        "proto",
+        "python",
         "query",
         "sql",
         "terraform",
-        "typescript",
-        "tsx",
         "vim",
         "vimdoc",
+        "toml",
         "yaml",
       },
       incremental_selection = {
@@ -44,9 +40,5 @@ return {
         },
       },
     })
-    require('nvim-ts-autotag').setup({
-      opts = {},
-    })
   end,
 }
-
