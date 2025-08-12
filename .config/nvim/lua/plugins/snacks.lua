@@ -47,6 +47,8 @@ return {
     { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
     { "<leader>fw", function() Snacks.picker.grep() end, desc = "Grep" },
     { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
+    { "<leader>gb", function() Snacks.git.blame_line() end, desc = "Git Blame Line", mode = { "n", "v" } },
+    { "<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit" },
     { '<leader>sd', function() Snacks.picker.diagnostics() end, desc = 'Diagnostics' },
     { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
     { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
