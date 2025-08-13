@@ -57,6 +57,7 @@ return {
     { "<leader>gbl", function() Snacks.git.blame_line() end, desc = "Git Blame Line", mode = { "n", "v" } },
     { "<leader>gbb", function() Snacks.picker.git_branches() end, desc = "Git Branches", mode = { "n", "v" } },
     { "<leader>lg",  function() Snacks.lazygit() end, desc = "Lazygit" },
+    { "<leader>n",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
     { '<leader>sd',  function() Snacks.picker.diagnostics() end, desc = 'Diagnostics' },
     { "<leader>sk",  function() Snacks.picker.keymaps() end, desc = "Keymaps" },
     { "<leader>ss",  function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
