@@ -1,26 +1,3 @@
-function tm() {
-    tmux attach -t $1 || tmux new -s $1
-}
-
-alias sge='set_git_email'
-function set_git_email() {
-    remote=`git remote -v | awk '/\(push\)$/ {print $2}'`
-    email=florobarotjr@gmail.com # default
-
-    if [[ $remote == *github.com:thinkingmachines* ]]; then
-        email=flo@thinkingmachin.es
-    fi
-
-    echo "Configuring user.email as $email"
-    git config user.email $email
-}
-
-function fernet_key() {
-    key=`python -c "exec(\"from cryptography.fernet import Fernet\\nprint(Fernet.generate_key().decode())\")"`
-    echo $key | pbcopy
-    echo "$key copied to clipboard!"
-}
-
 function get_bq_schema() {
     project=$1
     dataset=$2
