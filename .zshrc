@@ -92,6 +92,9 @@ alias readlink=greadlink
 
 export PATH="/home/flo/.local/bin:$PATH"
 
+# git
+git config --global alias.d 'difftool -t nvimdiff -y'
+
 # zoxide
 eval "$(zoxide init zsh --cmd cd)"
 
