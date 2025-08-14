@@ -114,72 +114,6 @@ alt-shift-l = 'move right'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-shift-cmd-ctrl-1 = 'workspace 1'
-alt-shift-cmd-ctrl-2 = 'workspace 2'
-alt-shift-cmd-ctrl-3 = 'workspace 3'
-alt-shift-cmd-ctrl-4 = 'workspace 4'
-alt-shift-cmd-ctrl-5 = 'workspace 5'
-alt-shift-cmd-ctrl-6 = 'workspace 6'
-alt-shift-cmd-ctrl-7 = 'workspace 7'
-alt-shift-cmd-ctrl-8 = 'workspace 8'
-alt-shift-cmd-ctrl-9 = 'workspace 9'
-alt-shift-cmd-ctrl-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
-alt-shift-cmd-ctrl-b = 'workspace B' # browser
-alt-shift-cmd-ctrl-c = 'workspace C'
-alt-shift-cmd-ctrl-d = 'workspace D'
-alt-shift-cmd-ctrl-e = 'workspace E'
-alt-shift-cmd-ctrl-f = 'workspace F'
-alt-shift-cmd-ctrl-g = 'workspace G'
-alt-shift-cmd-ctrl-i = 'workspace I'
-# alt-shift-cmd-ctrl-m = 'workspace M'
-alt-shift-cmd-ctrl-n = 'workspace N'
-alt-shift-cmd-ctrl-o = 'workspace O' # obsidian
-# alt-shift-cmd-ctrl-p = 'workspace P'
-alt-shift-cmd-ctrl-q = 'workspace Q'
-alt-shift-cmd-ctrl-r = 'workspace R'
-alt-shift-cmd-ctrl-s = 'workspace S' # slack
-alt-shift-cmd-ctrl-t = 'workspace T' # terminal
-alt-shift-cmd-ctrl-u = 'workspace U'
-alt-shift-cmd-ctrl-v = 'workspace V'
-alt-shift-cmd-ctrl-w = 'workspace W'
-alt-shift-cmd-ctrl-x = 'workspace X'
-alt-shift-cmd-ctrl-y = 'workspace Y'
-alt-shift-cmd-ctrl-z = 'workspace Z'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-1 = 'move-node-to-workspace 1'
-alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
-alt-shift-5 = 'move-node-to-workspace 5'
-alt-shift-6 = 'move-node-to-workspace 6'
-alt-shift-7 = 'move-node-to-workspace 7'
-alt-shift-8 = 'move-node-to-workspace 8'
-alt-shift-9 = 'move-node-to-workspace 9'
-alt-shift-a = 'move-node-to-workspace A'
-alt-shift-b = 'move-node-to-workspace B'
-alt-shift-c = 'move-node-to-workspace C'
-alt-shift-d = 'move-node-to-workspace D'
-alt-shift-e = 'move-node-to-workspace E'
-alt-shift-f = 'move-node-to-workspace F'
-alt-shift-g = 'move-node-to-workspace G'
-alt-shift-i = 'move-node-to-workspace I'
-# alt-shift-m = 'move-node-to-workspace M'
-alt-shift-n = 'move-node-to-workspace N'
-alt-shift-o = 'move-node-to-workspace O'
-# alt-shift-p = 'move-node-to-workspace P'
-alt-shift-q = 'move-node-to-workspace Q'
-alt-shift-r = 'move-node-to-workspace R'
-alt-shift-s = 'move-node-to-workspace S'
-alt-shift-t = 'move-node-to-workspace T'
-alt-shift-u = 'move-node-to-workspace U'
-alt-shift-v = 'move-node-to-workspace V'
-alt-shift-w = 'move-node-to-workspace W'
-alt-shift-x = 'move-node-to-workspace X'
-alt-shift-y = 'move-node-to-workspace Y'
-alt-shift-z = 'move-node-to-workspace Z'
-
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
@@ -196,22 +130,45 @@ r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
-# sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-#s = ['layout sticky tiling', 'mode main']
-
 alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-# Custom workspace for apps
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+alt-shift-cmd-ctrl-1 = 'workspace 1' # extra two workspaces as needed
+alt-shift-cmd-ctrl-2 = 'workspace 2'
+alt-shift-cmd-ctrl-b = 'workspace B' # browser
+alt-shift-cmd-ctrl-d = 'workspace D' # todo
+alt-shift-cmd-ctrl-n = 'workspace N' # notes
+alt-shift-cmd-ctrl-o = 'workspace O' # mail
+alt-shift-cmd-ctrl-s = 'workspace S' # slack
+alt-shift-cmd-ctrl-t = 'workspace T' # terminal
+alt-shift-cmd-ctrl-z = 'workspace Z' # zoom
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-b = 'move-node-to-workspace B'
+alt-shift-d = 'move-node-to-workspace D'
+alt-shift-n = 'move-node-to-workspace N'
+alt-shift-o = 'move-node-to-workspace O'
+alt-shift-s = 'move-node-to-workspace S'
+alt-shift-t = 'move-node-to-workspace T'
+alt-shift-z = 'move-node-to-workspace Z'
+
+# Open apps to certain workspaces
 [[on-window-detected]]
-if.app-id = 'md.obsidian'
+if.app-id = 'company.thebrowser.Browser'
 run = 'move-node-to-workspace B'
 
 [[on-window-detected]]
 if.app-id = 'com.todoist.mac.Todoist'
 run = 'move-node-to-workspace D'
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace N'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Outlook'
@@ -231,6 +188,6 @@ run = 'move-node-to-workspace Z'
 
 # Workspace to monitor bindings
 [workspace-to-monitor-force-assignment]
-Z = 'secondary'
-Q = 'secondary'
 B = 'secondary'
+T = 'secondary'
+Z = 'secondary'
