@@ -43,3 +43,6 @@ install .config/skhd/skhdrc .config/skhd/skhdrc
 
 mkdir -p $HOME/.config/ghostty
 install .config/ghostty/config .config/ghostty/config
+
+mkdir -p $HOME/.config/tms 
+install .config/tms/config.toml .config/tms/config.toml

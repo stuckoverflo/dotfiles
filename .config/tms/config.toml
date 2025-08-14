@@ -1,0 +1,5 @@
+bookmarks = ["/Users/fbarot/.dotfiles"]
+
+[[search_dirs]]
+path = "/Users/fbarot/dev"
+depth = 1
