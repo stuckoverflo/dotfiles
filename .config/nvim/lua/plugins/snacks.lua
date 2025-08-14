@@ -37,7 +37,7 @@ return {
     },
     quickfile = {},
     scratch = { enabled = true },
-    scroll = { enabled = true },
+    -- scroll = { enabled = true },
     words = { enabled = true },
   },
   keys = {
