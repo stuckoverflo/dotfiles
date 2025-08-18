@@ -90,7 +90,7 @@ return {
     end,
 
     checkbox = {
-      order = {" ", "x", "!", "?", "-"}
+      order = { " ", "x", "!", "?", "-" },
     },
     callbacks = {
       enter_note = function(_, note)
@@ -103,6 +103,9 @@ return {
         vim.keymap.set("n", "<cr>", function()
           return require("obsidian").util.smart_action(note)
         end, { buffer = note.bufnr, expr = true })
+        vim.keymap.set("n", "<leader>oq", "<cmd>Obsidian quick_switch<cr>", { buffer = note.bufnr })
+        vim.keymap.set("n", "<leader>on", "<cmd>Obsidian new_from_template zettel<cr>", { buffer = note.bufnr })
+        vim.keymap.set("n", "<leader>od", "<cmd>Obsidian today<cr>", { buffer = note.bufnr })
       end,
     },
     disable_frontmatter = true,
