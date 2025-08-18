@@ -1,5 +1,5 @@
 theme = "tokyonight_moon"
-font-family = "Cascadia Code NF"
+font-family = "Inter"
 font-size = 20
 cursor-style = block
 macos-titlebar-style = hidden
