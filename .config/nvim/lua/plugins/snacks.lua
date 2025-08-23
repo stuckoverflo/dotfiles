@@ -19,7 +19,10 @@ return {
         keys = {},
       },
     },
-    explorer = { enabled = true },
+    explorer = {
+      enabled = true,
+      replace_netrw = true,
+    },
     gitbrowse = { enabled = true },
     input = {
       enabled = false,
