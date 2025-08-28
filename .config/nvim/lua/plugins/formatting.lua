@@ -5,20 +5,19 @@ return {
     local conform = require("conform")
 
     conform.setup({
+      formatters = {
+        black = {
+          prepend_args = { "--fast" },
+        },
+      },
       formatters_by_ft = {
         css = { "prettier" },
         go = { "gofumpt" },
-        graphql = { "prettier" },
-        html = { "prettier" },
-        javascript = { "prettier" },
-        javascriptreact = { "prettier" },
         json = { "prettier" },
         lua = { "stylua" },
         markdown = { "prettier" },
         python = { "isort", "black" },
         terraform = { "terraform_fmt" },
-        typescript = { "prettier" },
-        typescriptreact = { "prettier" },
         yaml = { "prettier" },
       },
       format_on_save = function(bufnr)
