@@ -31,3 +31,9 @@ opt.splitbelow = true -- horizontal split always to the bottom
 opt.scrolloff = 8
 
 opt.guicursor = ""
+
+-- set foldexpr
+opt.foldmethod = "expr"
+-- opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldlevel = 99
