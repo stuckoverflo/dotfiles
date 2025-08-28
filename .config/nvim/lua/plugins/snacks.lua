@@ -16,7 +16,9 @@ return {
        ╚═╝██║     ███████╗╚██████╔╝ 
           ╚═╝     ╚══════╝ ╚═════╝  
         ]] .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch,
-        keys = {},
+        keys = {
+          { icon = ' ', key = 'o', desc = 'Obsidian', action = ':Obsidian quick_switch', enabled = function() return vim.fn.exists(':Obsidian') == 2 end },
+        },
       },
     },
     explorer = {
@@ -37,6 +39,11 @@ return {
     picker = {
       enabled = true,
       cwd_bonus = true,
+      sources = {
+        explorer = { hidden = true },
+        files = { hidden = true },
+        grep = { hidden = true },
+      }
     },
     quickfile = {},
     scratch = { enabled = true },
