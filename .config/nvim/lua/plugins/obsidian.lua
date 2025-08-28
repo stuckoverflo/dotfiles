@@ -50,7 +50,7 @@ return {
         end,
       },
       customizations = {
-        nvim_zettel = {
+        a_nvim_zettel = {
           notes_subdir = "00-inbox",
           note_id_func = function(title)
             local suffix = ""
@@ -104,7 +104,7 @@ return {
           return require("obsidian").util.smart_action(note)
         end, { buffer = note.bufnr, expr = true })
         vim.keymap.set("n", "<leader>nq", "<cmd>Obsidian quick_switch<cr>")
-        vim.keymap.set("n", "<leader>nz", "<cmd>Obsidian new_from_template zettel<cr>")
+        vim.keymap.set("n", "<leader>nz", "<cmd>Obsidian new_from_template <cr>")
         vim.keymap.set("n", "<leader>nd", "<cmd>Obsidian today<cr>")
       end,
     },
