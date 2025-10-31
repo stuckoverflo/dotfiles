@@ -95,11 +95,14 @@ export PATH="/home/flo/.local/bin:$PATH"
 # git
 git config --global alias.d 'difftool -t nvimdiff -y'
 
-# zoxide
-eval "$(zoxide init zsh --cmd cd)"
+# Only load interactive customizations when in interactive mode
+if [[ $- == *i* ]]; then
+  # zoxide
+  eval "$(zoxide init zsh --cmd cd)"
 
-# eza
-alias ls="eza --long --icons=always --color=always --no-permissions --group-directories-first"
+  # eza
+  alias ls="eza --long --icons=always --color=always --no-permissions --group-directories-first"
+fi
 
 # bat
 export BAT_THEME=tokyonight_storm
