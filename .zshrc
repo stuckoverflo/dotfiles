@@ -1,15 +1,12 @@
 # ZSHRC_START_TIME=$(date +%s%N)
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-source $ZSH/oh-my-zsh.sh
 
 export VISUAL=nvim
 export EDITOR=$VISUAL
 
 # PATH
-export PATH="/home/flo/.local/bin:$PATH"
-export PATH="/home/flo/.dotfiles/scripts/:$PATH"
-export PATH="/home/flo/go/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.dotfiles/scripts/:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 
 # aliases
@@ -84,23 +81,16 @@ _fzf_comprun() {
   esac
 }
 
-# source ~/fzf-git.sh/fzf-git.sh
-
 # gnu-getopt
 export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 alias readlink=greadlink
-
-export PATH="/home/flo/.local/bin:$PATH"
 
 # git
 git config --global alias.d 'difftool -t nvimdiff -y'
 
 # Only load interactive customizations when in interactive mode
 if [[ $- == *i* ]]; then
-  # zoxide
   eval "$(zoxide init zsh --cmd cd)"
-
-  # eza
   alias ls="eza --long --icons=always --color=always --no-permissions --group-directories-first"
 fi
 
@@ -120,21 +110,11 @@ if uname | grep -q "Darwin"; then
   export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 fi
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/fbarot/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fbarot/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/fbarot/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fbarot/google-cloud-sdk/completion.zsh.inc'; fi
-
-# tms config
-export TMS_CONFIG_FILE="$HOME/.config/tms/config.toml"
-
-# ZSHRC_END_TIME=$(date +%s%N)
-# ZSHRC_DURATION=$(( ($ZSHRC_END_TIME - $ZSHRC_START_TIME)/1000000 ))
-# echo "zshrc loaded in ${ZSHRC_DURATION} ms"
 
 function sesh-sessions() {
   {
@@ -152,3 +132,7 @@ zle     -N             sesh-sessions
 bindkey -M emacs '\es' sesh-sessions
 bindkey -M vicmd '\es' sesh-sessions
 bindkey -M viins '\es' sesh-sessions
+
+# ZSHRC_END_TIME=$(date +%s%N)
+# ZSHRC_DURATION=$(( ($ZSHRC_END_TIME - $ZSHRC_START_TIME)/1000000 ))
+# echo "zshrc loaded in ${ZSHRC_DURATION} ms"
