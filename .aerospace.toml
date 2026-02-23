@@ -170,6 +170,10 @@ if.app-id = 'company.thebrowser.Browser'
 run = 'move-node-to-workspace B'
 
 [[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = 'move-node-to-workspace B'
+
+[[on-window-detected]]
 if.app-id = 'com.todoist.mac.Todoist'
 run = 'move-node-to-workspace D'
 
@@ -195,7 +199,7 @@ run = 'move-node-to-workspace Z'
 
 [[on-window-detected]]
 check-further-callbacks = true
-run = 'layout floating'
+run = ['layout tiling', 'move-node-to-workspace 1']
 
 # # Workspace to monitor bindings
 # [workspace-to-monitor-force-assignment]
