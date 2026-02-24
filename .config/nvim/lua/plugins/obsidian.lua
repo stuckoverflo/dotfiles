@@ -17,6 +17,9 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
   },
   opts = {
+    frontmatter = {
+      enabled = false,
+    },
     legacy_commands = false,
     workspaces = {
       {
@@ -108,6 +111,5 @@ return {
         vim.keymap.set("n", "<leader>nd", "<cmd>Obsidian today<cr>")
       end,
     },
-    disable_frontmatter = true,
   },
 }
