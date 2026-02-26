@@ -1,6 +1,6 @@
 theme = kanso-ink
-font-family = "Maple Mono NF"
-font-family-italic = "Maple Mono NF"
+font-family = "Lilex Nerd Font Mono"
+font-family-italic = "Lilex Nerd Font Mono"
 font-size = 18
 cursor-style = block
 macos-titlebar-style = hidden
