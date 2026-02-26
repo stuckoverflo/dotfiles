@@ -96,18 +96,9 @@ return {
       order = { " ", "x", "!", "?", "-" },
     },
     callbacks = {
-      enter_note = function(_, note)
-        vim.keymap.set("n", "<leader>gf", function()
-          return require("obsidian").util.gf_passthrough(note)
-        end, { noremap = false, expr = true, buffer = note.bufnr })
-        vim.keymap.set("n", "<leader>ch", function()
-          return require("obsidian").util.toggle_checkbox(note)
-        end, { buffer = note.bufnr })
-        vim.keymap.set("n", "<cr>", function()
-          return require("obsidian").util.smart_action(note)
-        end, { buffer = note.bufnr, expr = true })
+      enter_note = function(note)
         vim.keymap.set("n", "<leader>nq", "<cmd>Obsidian quick_switch<cr>")
-        vim.keymap.set("n", "<leader>nz", "<cmd>Obsidian new_from_template <cr>")
+        vim.keymap.set("n", "<leader>nz", "<cmd>Obsidian new_from_template<cr>")
         vim.keymap.set("n", "<leader>nd", "<cmd>Obsidian today<cr>")
       end,
     },
