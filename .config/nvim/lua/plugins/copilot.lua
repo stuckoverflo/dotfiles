@@ -5,7 +5,7 @@ return {
   config = function()
     require("copilot").setup({
       panel = {
-        enabled = false,
+        enabled = true,
         auto_refresh = false,
         keymap = {
           jump_prev = "[[",
@@ -20,7 +20,7 @@ return {
         },
       },
       suggestion = {
-        enabled = false,
+        enabled = true,
         auto_trigger = true,
         hide_during_completion = true,
         debounce = 75,
