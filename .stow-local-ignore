@@ -1,0 +1,9 @@
+\.git
+\.gitignore
+\.gitmodules
+README\.md
+Brewfile
+Makefile
+install\.sh
+LICENSE
+\.stow-local-ignore

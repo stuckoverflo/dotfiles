@@ -1,11 +1,16 @@
 # ZSHRC_START_TIME=$(date +%s%N)
 
+# XDG
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+
 export VISUAL=nvim
 export EDITOR=$VISUAL
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.dotfiles/scripts/:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 
@@ -13,8 +18,8 @@ export PATH="/usr/local/go/bin:$PATH"
 alias python=python3
 alias pip=pip3
 alias srcprof="source ~/.zshrc"
-source ~/.dotfiles/scripts/aliases.sh
-source ~/.dotfiles/scripts/utils.sh
+source ~/.config/shell/aliases.sh
+source ~/.config/shell/utils.sh
 
 # zsh
 setopt hist_ignore_dups
@@ -84,9 +89,6 @@ _fzf_comprun() {
 # gnu-getopt
 export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 alias readlink=greadlink
-
-# git
-git config --global alias.d 'difftool -t nvimdiff -y'
 
 # Only load interactive customizations when in interactive mode
 if [[ $- == *i* ]]; then

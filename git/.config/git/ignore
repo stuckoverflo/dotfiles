@@ -57,3 +57,6 @@ Desktop.ini
 matcher.ipynb
 dump.rdb
 secrets/
+
+# claude
+**/.claude/settings.local.json
