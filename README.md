@@ -43,9 +43,34 @@ Each directory is a stow package that mirrors `$HOME`:
 ├── readline/      .inputrc
 ├── shell/         .config/shell/aliases.sh, utils.sh
 ├── starship/      .config/starship.toml
-├── tmux/          .config/tmux/tmux.conf + cht scripts
-├── vim/           .vimrc
+├── tmux/          .config/tmux/tmux.conf
 └── zsh/           .zshrc
+```
+
+## Stowing and unstowing individual packages
+
+Symlink a single package:
+
+```bash
+stow -t ~ tmux          # create symlinks for tmux package
+```
+
+Remove symlinks for a single package:
+
+```bash
+stow -t ~ -D tmux       # remove symlinks for tmux package
+```
+
+Re-stow (remove then re-create, useful after moving files around):
+
+```bash
+stow -t ~ --restow tmux
+```
+
+Dry-run to preview what would happen:
+
+```bash
+stow -t ~ --simulate --verbose tmux
 ```
 
 ## Adding a new config
