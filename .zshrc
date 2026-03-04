@@ -107,7 +107,7 @@ if uname -r | grep -q "WSL"; then
 fi
 
 if uname | grep -q "Darwin"; then
-  export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+  export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
