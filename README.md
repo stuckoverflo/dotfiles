@@ -1,52 +1,66 @@
-## setup
+# dotfiles
 
-Install the following:
+Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/) and [Homebrew](https://brew.sh/).
 
-- [rust](https://www.rust-lang.org/)
-- [bat](https://github.com/sharkdp/bat)
-  - [theme](https://github.com/folke/tokyonight.nvim/issues/23)
-- [delta](https://github.com/dandavison/delta)
-- [eza](https://github.com/eza-community/eza)
-- [fd](https://github.com/sharkdp/fd)
-- [fzf](https://github.com/junegunn/fzf)
-  - [fzf-git](https://github.com/junegunn/fzf-git.sh)
-- [go](https://go.dev/)
-- [lazygit](https://github.com/jesseduffield/lazygit)
-- [neovim](https://neovim.io/)
-- [node](https://nodejs.org/en/download/package-manager)
-- [oh-my-zsh](https://ohmyz.sh)
-  - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-  - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- `tree`
-- [zoxide](https://github.com/ajeetdsouza/zoxide)
-- [yabai](https://github.com/koekeishiya/yabai) and [skhd](https://github.com/koekeishiya/skhd)
+## Quick start
 
-## macOS
-
-- [brew](https://brew.sh/)
-
-## fonts
-
-- [Cascadia Code](https://github.com/microsoft/cascadia-code)
-- [Monaspace](https://github.com/githubnext/monaspace/)
-- [Atkinson Hyperlegible](https://brailleinstitute.org/freefont)
-
-## prompt
-
-- [Starship](https://starship.rs/)
-
-```
-starship preset nerd-font-symbols -o ~/.config/starship.toml
+```bash
+git clone https://github.com/fbarot/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+make install      # brew bundle + stow symlinks
 ```
 
-## dotfiles
+On a brand new machine (no Homebrew yet):
+
+```bash
+make bootstrap    # installs Homebrew, then runs make install
+```
+
+## Make targets
+
+| Target | Description |
+|--------|-------------|
+| `make bootstrap` | Install Homebrew if missing, then full setup |
+| `make install` | Install apps + symlink configs |
+| `make apps` | Install/update Homebrew packages only |
+| `make config` | Symlink configs only (safe to re-run) |
+| `make update` | Update all Homebrew packages |
+| `make clean` | Remove all stow symlinks |
+| `make dump` | Dump current brew state to Brewfile |
+
+## Structure
+
+Each directory is a stow package that mirrors `$HOME`:
 
 ```
-./install.sh
-
+~/.dotfiles/
+├── aerospace/     .aerospace.toml
+├── direnv/        .config/direnv/direnvrc
+├── ghostty/       .config/ghostty/config
+├── git/           .gitconfig + .config/git/ignore
+├── karabiner/     .config/karabiner/assets/complex_modifications/
+├── nvim/          .config/nvim/
+├── readline/      .inputrc
+├── shell/         .config/shell/aliases.sh, utils.sh
+├── starship/      .config/starship.toml
+├── tmux/          .config/tmux/tmux.conf + cht scripts
+├── vim/           .vimrc
+└── zsh/           .zshrc
 ```
 
-## scripts
+## Adding a new config
 
-In the `scripts` folder, run `chmod +x` in the scripts that we want to be executable
+1. Create a package directory: `mkdir -p newpkg/.config/newpkg`
+2. Place config files mirroring their `$HOME` location
+3. Add the package name to the `PACKAGES` array in `install.sh`
+4. Run `make config`
+
+## Machine-local git config
+
+User name/email live in `~/.config/git/config.local` (not tracked):
+
+```ini
+[user]
+    name = Your Name
+    email = you@example.com
+```

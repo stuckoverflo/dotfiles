@@ -1,0 +1,22 @@
+[include]
+	path = ~/.config/git/config.local
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[alias]
+	d = difftool -t nvimdiff -y
+
+[diff]
+	tool = nvimdiff
+
+[pull]
+	reapplyCherry-Picks = true
+
+[core]
+	excludesFile = ~/.config/git/ignore
+	fsmonitor = true
+	untrackedCache = true
