@@ -10,6 +10,12 @@ function get_bq_load_log() {
     bq --format=prettyjson show -j $job_id
 }
 
+function switch_to_worktree() {
+  local selected
+  selected=$(git worktree list | fzf | awk '{print $1}')
+  [[ -n "$selected" ]] && cd "$selected"
+}
+
 function git() {
     if [[ "$(pwd)" == "/mnt/c/obsidian/notes" ]]; then
         git.exe "$@"
