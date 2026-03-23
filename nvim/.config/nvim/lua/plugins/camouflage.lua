@@ -6,7 +6,7 @@ return {
       auto_enable = true,
       enabled = true,
       patterns = {
-        { file_pattern = { ".secrets" }, parser = "env" },
+        { file_pattern = { ".env.secrets" }, parser = "env" },
       },
     })
   end,
