@@ -31,6 +31,8 @@ alias sb='cd notes'
 
 #git
 alias gr='cd $(git rev-parse --show-toplevel)'
+alias wt='switch_to_worktree'
+alias wtm='cd "$(git worktree list | grep "\[main\]" | awk "{print \$1}")"'
 
 #terraform
 alias tf=terraform
