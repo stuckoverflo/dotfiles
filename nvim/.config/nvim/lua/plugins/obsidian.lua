@@ -10,6 +10,11 @@ return {
   --   "BufReadPre path/to/my-vault/**.md",
   --   "BufNewFile path/to/my-vault/**.md",
   -- },
+  keys = {
+    { "<leader>oq", "<cmd>Obsidian quick_switch<cr>", desc = "Obsidian Quick Switch" },
+    { "<leader>oz", "<cmd>Obsidian new_from_template<cr>", desc = "Obsidian New from Template" },
+    { "<leader>od", "<cmd>Obsidian today<cr>", desc = "Obsidian Today" },
+  },
   dependencies = {
     "hrsh7th/nvim-cmp",
     "nvim-treesitter",
@@ -94,13 +99,6 @@ return {
 
     checkbox = {
       order = { " ", "x", "!", "?", "-" },
-    },
-    callbacks = {
-      enter_note = function(note)
-        vim.keymap.set("n", "<leader>nq", "<cmd>Obsidian quick_switch<cr>")
-        vim.keymap.set("n", "<leader>nz", "<cmd>Obsidian new_from_template<cr>")
-        vim.keymap.set("n", "<leader>nd", "<cmd>Obsidian today<cr>")
-      end,
     },
   },
 }
