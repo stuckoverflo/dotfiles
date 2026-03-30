@@ -18,5 +18,3 @@
 
 [core]
 	excludesFile = ~/.config/git/ignore
-	fsmonitor = true
-	untrackedCache = true
