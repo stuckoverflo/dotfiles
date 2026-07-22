@@ -37,30 +37,6 @@ alias wtm='cd "$(git worktree list | grep "\[main\]" | awk "{print \$1}")"'
 #terraform
 alias tf=terraform
 
-# todo.txt
-alias t='todo.sh -d ~/.todo.cfg'
-alias ta='t add'
-alias tl='t list'
-alias td='t do'
-alias tp='t pri'
-
-# TTDL (better for due dates and sorting)
-alias tt='ttdl --todo-file "$HOME/Documents/notes/work/todo.txt"'
-alias tts='tt list --sort due'
-alias ttd='tt list --sort=priority --due=today'
-
-# Open URL from a task line
-todo-open() {
-  local url=$(todo.sh -d ~/.todo.cfg list "$1" | grep -oE 'https?://[^ ]+' | head -1)
-  if [ -n "$url" ]; then
-    open "$url"
-  else
-    echo "No URL found in task $1"
-  fi
-}
-
-# Archive completed items
-todo-clean() {
-  todo.sh -d ~/.todo.cfg archive
-  echo "Archived completed items to done.txt"
+gcp_project_id() {
+  gcloud projects describe $1 --format="value(projectNumber)"
 }
