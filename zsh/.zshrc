@@ -27,17 +27,6 @@ setopt hist_ignore_all_dups
 setopt hist_find_no_dups
 setopt hist_reduce_blanks
 
-# Prevent todo.txt commands from polluting shell history
-zshaddhistory() {
-  local cmd="${1%%$'\n'}"
-  case "$cmd" in
-    t\ *|ta\ *|tl*|td\ *|tp\ *|tt\ *|tts*|todo-*|todo.sh\ *|ttdl\ *)
-      return 1
-      ;;
-  esac
-  return 0
-}
-
 # direnv
 export DIRENV_BASH=/bin/bash
 eval "$(direnv hook zsh)"
