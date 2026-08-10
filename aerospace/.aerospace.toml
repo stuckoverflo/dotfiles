@@ -129,6 +129,7 @@ outer.right =      8
   alt-shift-cmd-ctrl-1 = 'workspace 1' # extra two workspaces as needed
   alt-shift-cmd-ctrl-2 = 'workspace 2'
   alt-shift-cmd-ctrl-b = 'workspace B' # browser
+  alt-shift-cmd-ctrl-c = 'workspace C' # chat/teams
   alt-shift-cmd-ctrl-d = 'workspace D' # todo
   alt-shift-cmd-ctrl-n = 'workspace N' # notes
   alt-shift-cmd-ctrl-o = 'workspace O' # mail
@@ -140,6 +141,7 @@ outer.right =      8
   alt-shift-1 = 'move-node-to-workspace 1'
   alt-shift-2 = 'move-node-to-workspace 2'
   alt-shift-b = 'move-node-to-workspace B'
+  alt-shift-c = 'move-node-to-workspace C'
   alt-shift-d = 'move-node-to-workspace D'
   alt-shift-n = 'move-node-to-workspace N'
   alt-shift-o = 'move-node-to-workspace O'
@@ -172,6 +174,10 @@ run = 'move-node-to-workspace B'
 [[on-window-detected]]
 if.app-id = 'app.zen-browser.zen'
 run = 'move-node-to-workspace B'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
 if.app-id = 'com.todoist.mac.Todoist'
