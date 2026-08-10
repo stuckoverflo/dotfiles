@@ -10,7 +10,7 @@ install: apps config
 
 # Install apps via Brewfile
 apps:
-	brew bundle --file=Brewfile --no-lock
+	HOMEBREW_BUNDLE_NO_LOCK=1 brew bundle --file=Brewfile
 
 # Symlink configs only (safe to re-run)
 config:

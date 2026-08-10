@@ -1,6 +1,3 @@
-# Taps
-tap "homebrew/bundle"
-
 # ── Shell & Terminal ──────────────────────────────────────
 brew "bash"
 brew "starship"
@@ -34,7 +31,6 @@ brew "uv"
 
 # ── DevOps & Cloud ────────────────────────────────────────
 brew "k9s"
-brew "terraform"
 
 # ── Utilities ─────────────────────────────────────────────
 brew "glow"
@@ -53,10 +49,11 @@ if OS.mac?
   cask "notunes"
   cask "obsidian"
   cask "raycast"
+  cask "zen"
 
   # Fonts
   cask "font-cascadia-code-nf"
   cask "font-lilex-nerd-font"
   cask "font-maple-mono-nf"
-  cask "font-monaspace-nerd-font"
+  cask "font-monaspice-nerd-font"
 end
