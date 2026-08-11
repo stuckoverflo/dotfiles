@@ -1,6 +1,7 @@
 return {
   "obsidian-nvim/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
+  lazy = false,
   -- lazy = true,
   -- ft = "markdown",
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
@@ -29,11 +30,33 @@ return {
     workspaces = {
       {
         name = "work",
-        path = os.getenv("OBSIDIAN_WORK"),
+        path = function()
+          return vim.env.OBSIDIAN_WORK
+        end,
+      },
+      {
+        name = "people",
+        path = function()
+          return vim.env.OBSIDIAN_PEOPLE
+        end,
+        overrides = {
+          new_notes_location = "notes_subdir",
+          notes_subdir = vim.NIL,
+          templates = {
+            folder = "templates",
+          },
+          daily_notes = {
+            enabled = false,
+            folder = vim.NIL,
+            template = vim.NIL,
+          },
+        },
       },
       {
         name = "personal",
-        path = os.getenv("OBSIDIAN_PERSONAL"),
+        path = function()
+          return vim.env.OBSIDIAN_PERSONAL
+        end,
       },
     },
     daily_notes = {
@@ -44,7 +67,7 @@ return {
       -- Optional, if you want to change the date format of the default alias of daily notes.
       -- alias_format = "%B %-d, %Y",
       -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-      template = "nvim_daily.md",
+      template = "nvim-daily.md",
     },
     templates = {
       folder = "templates",
@@ -55,6 +78,9 @@ return {
       substitutions = {
         today = function()
           return os.date("%Y-%m-%d")
+        end,
+        now = function()
+          return os.date("%Y-%m-%d %H:%M:%S")
         end,
       },
       customizations = {
@@ -81,7 +107,8 @@ return {
       nvim_cmp = true,
       min_chars = 2,
     },
-    new_notes_location = "00-inbox",
+    new_notes_location = "notes_subdir",
+    notes_subdir = "00-inbox",
     note_id_func = function(title)
       local suffix = ""
       if title ~= nil then
