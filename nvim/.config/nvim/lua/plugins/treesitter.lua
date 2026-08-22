@@ -1,34 +1,43 @@
+local parsers = {
+  "bash",
+  "css",
+  "dockerfile",
+  "gitignore",
+  "go",
+  "html",
+  "json",
+  "javascript",
+  "lua",
+  "markdown",
+  "markdown_inline",
+  "proto",
+  "python",
+  "query",
+  "sql",
+  "terraform",
+  "vim",
+  "vimdoc",
+  "toml",
+  "yaml",
+}
+
 return {
-  "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPre", "BufNewFile" },
-  build = ":TSUpdate",
-  config = function()
-    require("nvim-treesitter.configs").setup({
+  {
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    lazy = false,
+    build = ":TSUpdate",
+  },
+  {
+    "MeanderingProgrammer/treesitter-modules.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {
+      ensure_installed = parsers,
       highlight = {
         enable = true,
       },
-      indent = { enable = true },
-      ensure_installed = {
-        "bash",
-        "css",
-        "dockerfile",
-        "gitignore",
-        "go",
-        "html",
-        "json",
-        "javascript",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "proto",
-        "python",
-        "query",
-        "sql",
-        "terraform",
-        "vim",
-        "vimdoc",
-        "toml",
-        "yaml",
+      indent = {
+        enable = true,
       },
       incremental_selection = {
         enable = true,
@@ -39,6 +48,6 @@ return {
           node_decremental = "grm",
         },
       },
-    })
-  end,
+    },
+  },
 }

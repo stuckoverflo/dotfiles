@@ -1,16 +1,36 @@
+-- Vault roots, resolved from the same env vars the workspaces use so the two
+-- can't drift. Anything unset is dropped instead of falling back to a pattern
+-- that would match every markdown file.
+local vaults = vim.tbl_filter(function(dir)
+  return dir ~= nil and dir ~= "" and vim.fn.isdirectory(dir) == 1
+end, {
+  vim.fn.expand(vim.env.OBSIDIAN_WORK or ""),
+  vim.fn.expand(vim.env.OBSIDIAN_PEOPLE or ""),
+  vim.fn.expand(vim.env.OBSIDIAN_PERSONAL or ""),
+})
+
+local vault_events = {}
+for _, dir in ipairs(vaults) do
+  table.insert(vault_events, "BufReadPre " .. dir .. "/**.md")
+  table.insert(vault_events, "BufNewFile " .. dir .. "/**.md")
+end
+
+-- Also load eagerly when nvim starts with its cwd inside a vault, so the
+-- Obsidian commands are there without opening a note first.
+local cwd = vim.fs.normalize(vim.uv.cwd() or "")
+local cwd_in_vault = false
+for _, dir in ipairs(vaults) do
+  if cwd == dir or vim.startswith(cwd, dir .. "/") then
+    cwd_in_vault = true
+    break
+  end
+end
+
 return {
   "obsidian-nvim/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
-  lazy = false,
-  -- lazy = true,
-  -- ft = "markdown",
-  -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-  -- event = {
-  --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-  --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-  --   "BufReadPre path/to/my-vault/**.md",
-  --   "BufNewFile path/to/my-vault/**.md",
-  -- },
+  lazy = not cwd_in_vault,
+  event = vault_events,
   keys = {
     { "<leader>oq", "<cmd>Obsidian quick_switch<cr>", desc = "Obsidian Quick Switch" },
     { "<leader>oz", "<cmd>Obsidian new_from_template<cr>", desc = "Obsidian New from Template" },
@@ -30,12 +50,16 @@ return {
     workspaces = {
       {
         name = "work",
+        -- pin root to path; otherwise obsidian.nvim walks up looking for a
+        -- '.obsidian/' dir and can resolve the root to $HOME
+        strict = true,
         path = function()
           return vim.env.OBSIDIAN_WORK
         end,
       },
       {
         name = "people",
+        strict = true,
         path = function()
           return vim.env.OBSIDIAN_PEOPLE
         end,

@@ -3,6 +3,9 @@ local keymap = vim.keymap
 keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jj" })
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jj" })
 keymap.set("n", "<leader> ", ":update<CR>", { desc = "Save the current buffer" })
+keymap.set("n", "<leader>yf", function()
+  vim.fn.setreg("+", vim.fn.expand("%:t"))
+end, { desc = "Yank filename" })
 
 keymap.set("n", "j", "gj", { desc = "Treat long lines as break lines" })
 keymap.set("n", "k", "gk", { desc = "Treat long lines as break lines" })
