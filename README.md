@@ -82,10 +82,29 @@ stow -t ~ --simulate --verbose tmux
 
 ## Machine-local git config
 
-User name/email live in `~/.config/git/config.local` (not tracked):
+Identity lives in `~/.config/git/config.*`, which is gitignored. Nothing here is tracked, so
+recreate both files by hand on a new machine.
+
+Default identity plus the work routing, `~/.config/git/config.local`. The conditional includes live
+here rather than in `.gitconfig` so the work org is not named in this public repo:
 
 ```ini
 [user]
     name = Your Name
     email = you@example.com
+
+[includeIf "hasconfig:remote.*.url:git@github.com:YourOrg/**"]
+    path = ~/.config/git/config.work
+[includeIf "hasconfig:remote.*.url:https://github.com/YourOrg/**"]
+    path = ~/.config/git/config.work
 ```
+
+Work identity, `~/.config/git/config.work`. Matched on the remote rather than a path, so it holds
+wherever the repo is cloned. Name is inherited, so only the email is needed:
+
+```ini
+[user]
+    email = you@work.example
+```
+
+Check which file won: `git config --show-origin user.email`

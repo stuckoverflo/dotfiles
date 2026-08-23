@@ -1,0 +1,3 @@
+# Machine-local git identity files. They live inside this package because
+# ~/.config/git is stow-folded here, so they must never reach a public repo.
+git/.config/git/config.*
