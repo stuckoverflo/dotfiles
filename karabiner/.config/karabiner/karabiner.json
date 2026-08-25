@@ -75,7 +75,7 @@
                         ]
                     },
                     {
-                        "description": "CAPS_LOCK to HYPER (SHIFT+COMMAND+OPTION+CONTROL) or ESCAPE (If Alone)",
+                        "description": "CAPS_LOCK to HYPER (SHIFT+COMMAND+OPTION+CONTROL)",
                         "manipulators": [
                             {
                                 "from": {
@@ -88,7 +88,6 @@
                                         "modifiers": ["left_command", "left_control", "left_option"]
                                     }
                                 ],
-                                "to_if_alone": [{ "key_code": "escape" }],
                                 "type": "basic"
                             },
                             {
