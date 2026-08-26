@@ -4,6 +4,24 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "RIGHT_OPTION to MEH (SHIFT+OPTION+CONTROL)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_option",
+                                    "modifiers": {}
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": ["left_control", "left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Other Hyper Key keymaps",
                         "manipulators": [
                             {
