@@ -1,5 +1,5 @@
 {
-  "description": "Other Hyper Key keymaps",
+  "description": "Meh Home and End keymaps",
   "manipulators": [
     {
       "from": {
@@ -7,7 +7,6 @@
         "modifiers": {
           "mandatory": [
             "left_shift",
-            "left_command",
             "left_control",
             "left_option"
           ]
@@ -26,7 +25,6 @@
         "modifiers": {
           "mandatory": [
             "left_shift",
-            "left_command",
             "left_control",
             "left_option"
           ]

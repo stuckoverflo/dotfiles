@@ -22,12 +22,12 @@
                         ]
                     },
                     {
-                        "description": "Other Hyper Key keymaps",
+                        "description": "Meh Home and End keymaps",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "n",
-                                    "modifiers": { "mandatory": ["left_shift", "left_command", "left_control", "left_option"] }
+                                    "modifiers": { "mandatory": ["left_shift", "left_control", "left_option"] }
                                 },
                                 "to": [{ "key_code": "end" }],
                                 "type": "basic"
@@ -35,7 +35,7 @@
                             {
                                 "from": {
                                     "key_code": "i",
-                                    "modifiers": { "mandatory": ["left_shift", "left_command", "left_control", "left_option"] }
+                                    "modifiers": { "mandatory": ["left_shift", "left_control", "left_option"] }
                                 },
                                 "to": [{ "key_code": "home" }],
                                 "type": "basic"
