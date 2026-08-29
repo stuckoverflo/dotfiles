@@ -26,6 +26,33 @@ return {
       replace_netrw = true,
     },
     gitbrowse = { enabled = true },
+    image = {
+      enabled = true,
+      resolve = function(file, src)
+        if src:match("^%a[%w+.-]*://") then
+          return nil
+        end
+
+        local file_path = vim.fs.normalize(file)
+        for _, env in ipairs({ "OBSIDIAN_WORK", "OBSIDIAN_PEOPLE", "OBSIDIAN_PERSONAL" }) do
+          local root = vim.fs.normalize(vim.fn.expand(vim.env[env] or ""))
+          if root ~= "" and (file_path == root or vim.startswith(file_path, root .. "/")) then
+            local candidates = { src }
+            if not src:find("/", 1, true) then
+              candidates[#candidates + 1] = "attachments/" .. src
+              candidates[#candidates + 1] = "excalidraw/" .. src
+            end
+
+            for _, relative in ipairs(candidates) do
+              local path = vim.fs.normalize(vim.fs.joinpath(root, relative))
+              if vim.fn.filereadable(path) == 1 then
+                return path
+              end
+            end
+          end
+        end
+      end,
+    },
     input = {
       enabled = false,
       icon = " ",
