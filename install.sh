@@ -5,7 +5,7 @@ DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
 command -v stow &>/dev/null || { echo "stow not found. Run: brew install stow"; exit 1; }
 
-PACKAGES=(zsh git tmux nvim ghostty starship direnv readline shell)
+PACKAGES=(zsh git tmux nvim ghostty herdr starship direnv readline shell)
 MACOS_PACKAGES=(aerospace karabiner)
 
 for pkg in "${PACKAGES[@]}"; do

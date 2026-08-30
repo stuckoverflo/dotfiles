@@ -1,5 +1,6 @@
 # ── Shell & Terminal ──────────────────────────────────────
 brew "bash"
+brew "herdr"
 brew "starship"
 brew "tmux"
 brew "zoxide"

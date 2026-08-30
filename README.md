@@ -108,3 +108,9 @@ wherever the repo is cloned. Name is inherited, so only the email is needed:
 ```
 
 Check which file won: `git config --show-origin user.email`
+
+## Obsidian images in Neovim
+
+1. Run `make install` to install Herdr and stow its Kitty graphics configuration.
+2. In Obsidian Excalidraw settings, enable automatic PNG export and set the embedded file type to PNG.
+3. Restart Herdr, open a vault note in Neovim, and run `:checkhealth snacks`.
