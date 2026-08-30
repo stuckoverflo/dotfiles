@@ -21,6 +21,9 @@ return {
         yaml = { "prettier" },
       },
       format_on_save = function(bufnr)
+        if vim.api.nvim_buf_get_name(bufnr):match("%.excalidraw%.md$") then
+          return false
+        end
         if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
           return false
         end
