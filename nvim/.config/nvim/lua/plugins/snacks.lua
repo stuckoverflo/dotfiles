@@ -28,6 +28,33 @@ return {
     gitbrowse = { enabled = true },
     image = {
       enabled = true,
+      config = function()
+        local terminal = require("snacks.image.terminal")
+        local detected_size = terminal.size
+
+        -- Herdr PTYs can report rows and columns with zero pixel dimensions.
+        terminal.size = function()
+          local dimensions = detected_size()
+          if dimensions.width > 0
+            and dimensions.height > 0
+            and dimensions.cell_width > 0
+            and dimensions.cell_height > 0
+          then
+            return dimensions
+          end
+
+          local cell_width, cell_height = 9, 18
+          return {
+            width = vim.o.columns * cell_width,
+            height = vim.o.lines * cell_height,
+            columns = vim.o.columns,
+            rows = vim.o.lines,
+            cell_width = cell_width,
+            cell_height = cell_height,
+            scale = cell_width / 8,
+          }
+        end
+      end,
       resolve = function(file, src)
         if src:match("^%a[%w+.-]*://") then
           return nil
