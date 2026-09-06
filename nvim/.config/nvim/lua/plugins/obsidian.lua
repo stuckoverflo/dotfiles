@@ -55,7 +55,8 @@ local function new_project(data)
   local obsidian = require("obsidian")
   local Note, api, log = obsidian.Note, obsidian.api, obsidian.log
 
-  if Obsidian.workspace.name ~= "work" then
+  local projects = Obsidian.dir / PROJECTS_DIR
+  if not projects:is_dir() then
     return log.err("'%s' has no %s/ directory", Obsidian.workspace.name, PROJECTS_DIR)
   end
 
@@ -73,25 +74,33 @@ local function new_project(data)
     return log.err("'%s' has no characters usable in a file name", title)
   end
 
-  local dir = Obsidian.dir / PROJECTS_DIR / slug
-  if dir:exists() then
+  -- lstat rather than exists(), so a dangling symlink still counts as occupied
+  -- and never gets removed by the rollback below.
+  local dir = projects / slug
+  if vim.uv.fs_lstat(tostring(dir)) then
     return log.err("'%s' already exists", dir:vault_relative_path() or tostring(dir))
   end
 
-  -- Resolve both templates before anything touches the disk, so a typo in a
-  -- template name can't leave a half-built project behind.
+  -- Resolve the templates to absolute paths before anything touches the disk.
+  -- obsidian.nvim checks the cwd before the templates folder, so a bare name
+  -- would pick up a same-named file in whatever directory nvim started in.
   local templates_dir = api.templates_dir()
-  for _, part in ipairs(PROJECT_PARTS) do
-    local ok, err = pcall(obsidian.templates.resolve_template, part.template, templates_dir)
+  if not templates_dir then
+    return log.err("Templates folder is not defined or does not exist")
+  end
+  local templates = {}
+  for i, part in ipairs(PROJECT_PARTS) do
+    local ok, resolved = pcall(obsidian.templates.resolve_template, templates_dir / part.template)
     if not ok then
-      return log.err(tostring(err))
+      return log.err(tostring(resolved))
     end
+    templates[i] = tostring(resolved)
   end
 
   local name = slug:gsub("-", " ")
+  local created = {}
 
-  local ok, result = pcall(function()
-    local notes = {}
+  local ok, err = pcall(function()
     for i, part in ipairs(PROJECT_PARTS) do
       -- `should_write = false` because Note.create derives the title itself and
       -- the templates read it back through `{{title}}`.
@@ -102,18 +111,32 @@ local function new_project(data)
         should_write = false,
       })
       note.title = name .. " " .. part.suffix
-      note:write({ template = part.template })
-      notes[i] = note
+      created[i] = note
+      note:write({ template = templates[i] })
     end
-    return notes[1]
   end)
 
-  if not ok then
-    vim.fn.delete(tostring(dir), "rf")
-    return log.err("Could not create project '%s': %s", slug, tostring(result))
+  if ok then
+    return created[1]:open({ sync = true })
   end
 
-  result:open({ sync = true })
+  -- Roll back only what this call made: the notes, then the folder itself. `d`
+  -- refuses to remove a folder that still holds anything else.
+  local function remove(path, flags)
+    return not vim.uv.fs_lstat(path) or vim.fn.delete(path, flags) == 0
+  end
+  local clean = true
+  for _, note in ipairs(created) do
+    clean = remove(tostring(note.path)) and clean
+  end
+  clean = remove(tostring(dir), "d") and clean
+
+  return log.err(
+    "Could not create project '%s': %s%s",
+    slug,
+    tostring(err),
+    clean and "" or ("\nRemove '" .. tostring(dir) .. "' by hand.")
+  )
 end
 
 return {
