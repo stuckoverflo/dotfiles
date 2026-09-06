@@ -26,6 +26,96 @@ for _, dir in ipairs(vaults) do
   end
 end
 
+-- A project is a folder in `02-projects/` holding a hub note and the
+-- audience-facing output it produces. Both files are named after the folder.
+local PROJECTS_DIR = "02-projects"
+local PROJECT_PARTS = {
+  { suffix = "project", template = "project-hub.md" },
+  { suffix = "proposal", template = "project-output.md" },
+}
+
+-- Resolves `{{hub}}` / `{{output}}` in the project templates. Each note names
+-- its sibling from the folder they share, so neither template has to be
+-- rewritten after it is cloned.
+local function sibling(suffix)
+  return function(ctx)
+    local note = ctx.partial_note
+    local parent = note and note.path and note.path:parent()
+    return parent and (parent.name .. "-" .. suffix) or nil
+  end
+end
+
+local function slugify(title)
+  local slug = title:lower():gsub(" ", "-"):gsub("[^a-z0-9-]", "")
+  return (slug:gsub("-+", "-"):gsub("^-", ""):gsub("-$", ""))
+end
+
+---@param data obsidian.CommandArgs
+local function new_project(data)
+  local obsidian = require("obsidian")
+  local Note, api, log = obsidian.Note, obsidian.api, obsidian.log
+
+  if Obsidian.workspace.name ~= "work" then
+    return log.err("'%s' has no %s/ directory", Obsidian.workspace.name, PROJECTS_DIR)
+  end
+
+  local title = vim.trim(table.concat(data.fargs or {}, " "))
+  if title == "" then
+    local ok, answer = pcall(api.input, "Project title: ")
+    title = (ok and answer) and vim.trim(answer) or ""
+  end
+  if title == "" then
+    return log.warn("Aborted")
+  end
+
+  local slug = slugify(title)
+  if slug == "" then
+    return log.err("'%s' has no characters usable in a file name", title)
+  end
+
+  local dir = Obsidian.dir / PROJECTS_DIR / slug
+  if dir:exists() then
+    return log.err("'%s' already exists", dir:vault_relative_path() or tostring(dir))
+  end
+
+  -- Resolve both templates before anything touches the disk, so a typo in a
+  -- template name can't leave a half-built project behind.
+  local templates_dir = api.templates_dir()
+  for _, part in ipairs(PROJECT_PARTS) do
+    local ok, err = pcall(obsidian.templates.resolve_template, part.template, templates_dir)
+    if not ok then
+      return log.err(tostring(err))
+    end
+  end
+
+  local name = slug:gsub("-", " ")
+
+  local ok, result = pcall(function()
+    local notes = {}
+    for i, part in ipairs(PROJECT_PARTS) do
+      -- `should_write = false` because Note.create derives the title itself and
+      -- the templates read it back through `{{title}}`.
+      local note = Note.create({
+        id = slug .. "-" .. part.suffix,
+        dir = PROJECTS_DIR .. "/" .. slug,
+        verbatim = true,
+        should_write = false,
+      })
+      note.title = name .. " " .. part.suffix
+      note:write({ template = part.template })
+      notes[i] = note
+    end
+    return notes[1]
+  end)
+
+  if not ok then
+    vim.fn.delete(tostring(dir), "rf")
+    return log.err("Could not create project '%s': %s", slug, tostring(result))
+  end
+
+  result:open({ sync = true })
+end
+
 return {
   "obsidian-nvim/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
@@ -35,6 +125,7 @@ return {
     { "<leader>oq", "<cmd>Obsidian quick_switch<cr>", desc = "Obsidian Quick Switch" },
     { "<leader>oz", "<cmd>Obsidian new_from_template<cr>", desc = "Obsidian New from Template" },
     { "<leader>od", "<cmd>Obsidian today<cr>", desc = "Obsidian Today" },
+    { "<leader>op", "<cmd>Obsidian new_project<cr>", desc = "Obsidian New Project" },
   },
   dependencies = {
     "hrsh7th/nvim-cmp",
@@ -42,6 +133,11 @@ return {
     -- "OXY2DEV/markview.nvim",
     "MeanderingProgrammer/render-markdown.nvim",
   },
+  config = function(_, opts)
+    local obsidian = require("obsidian")
+    obsidian.setup(opts)
+    obsidian.register_command("new_project", { nargs = "*", func = new_project })
+  end,
   opts = {
     frontmatter = {
       enabled = false,
@@ -106,6 +202,8 @@ return {
         now = function()
           return os.date("%Y-%m-%d %H:%M:%S")
         end,
+        hub = sibling("project"),
+        output = sibling("proposal"),
       },
       customizations = {
         a_nvim_zettel = {
