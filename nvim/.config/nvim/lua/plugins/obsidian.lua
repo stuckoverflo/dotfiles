@@ -26,17 +26,14 @@ for _, dir in ipairs(vaults) do
   end
 end
 
--- A project is a folder in `02-projects/` holding a hub note and the
--- audience-facing output it produces. Both files are named after the folder.
 local PROJECTS_DIR = "02-projects"
 local PROJECT_PARTS = {
   { suffix = "project", template = "project-hub.md" },
   { suffix = "proposal", template = "project-output.md" },
 }
 
--- Resolves `{{hub}}` / `{{output}}` in the project templates. Each note names
--- its sibling from the folder they share, so neither template has to be
--- rewritten after it is cloned.
+-- Each note names its sibling from the folder they share, so neither template
+-- has to be rewritten after it is cloned.
 local function sibling(suffix)
   return function(ctx)
     local note = ctx.partial_note
