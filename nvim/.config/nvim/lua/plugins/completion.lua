@@ -4,6 +4,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
+    "saadparwaiz1/cmp_luasnip",
     {
       "L3MON4D3/LuaSnip",
       -- follow latest release.
@@ -75,6 +76,7 @@ return {
         --   end, { "i", "s" }),
       }),
       sources = cmp.config.sources({
+        { name = "lazydev", group_index = 0 },
         { name = "nvim_lsp" },
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
