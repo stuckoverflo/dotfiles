@@ -148,7 +148,6 @@ return {
     { "<leader>op", "<cmd>Obsidian new_project<cr>", desc = "Obsidian New Project" },
   },
   dependencies = {
-    "hrsh7th/nvim-cmp",
     "nvim-treesitter",
     -- "OXY2DEV/markview.nvim",
     "MeanderingProgrammer/render-markdown.nvim",
@@ -246,7 +245,10 @@ return {
       },
     },
     completion = {
-      nvim_cmp = true,
+      -- Obsidian completions are served by the plugin's in-process LSP and
+      -- displayed through the global nvim-cmp `nvim_lsp` source. This drops
+      -- the legacy per-source cmp identities/priorities (`obsidian`,
+      -- `obsidian_new`, and `obsidian_tags`), which were not customized here.
       min_chars = 2,
     },
     new_notes_location = "notes_subdir",
