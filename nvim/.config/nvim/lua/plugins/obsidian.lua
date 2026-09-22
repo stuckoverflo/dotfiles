@@ -5,6 +5,7 @@ local vaults = vim.tbl_filter(function(dir)
   return dir ~= nil and dir ~= "" and vim.fn.isdirectory(dir) == 1
 end, {
   vim.fn.expand(vim.env.OBSIDIAN_WORK or ""),
+  vim.fn.expand(vim.env.OBSIDIAN_KNOWLEDGE or ""),
   vim.fn.expand(vim.env.OBSIDIAN_PEOPLE or ""),
   vim.fn.expand(vim.env.OBSIDIAN_PERSONAL or ""),
 })
@@ -136,6 +137,22 @@ local function new_project(data)
   )
 end
 
+local function work_today()
+  local obsidian = require("obsidian")
+  for _, workspace in ipairs(Obsidian.workspaces) do
+    if workspace.name == "work" then
+      obsidian.Workspace.set(workspace)
+      -- Daily-note resolution otherwise follows the still-open source buffer.
+      local note = require("obsidian.daily").daily({ dir = workspace.root })
+      if not note:exists() then
+        note:write()
+      end
+      return note:open({ sync = true })
+    end
+  end
+  obsidian.log.err("Work vault is unavailable; check OBSIDIAN_WORK")
+end
+
 return {
   "obsidian-nvim/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
@@ -144,7 +161,18 @@ return {
   keys = {
     { "<leader>oq", "<cmd>Obsidian quick_switch<cr>", desc = "Obsidian Quick Switch" },
     { "<leader>oz", "<cmd>Obsidian new_from_template<cr>", desc = "Obsidian New from Template" },
-    { "<leader>od", "<cmd>Obsidian today<cr>", desc = "Obsidian Today" },
+    {
+      "<leader>od",
+      function()
+        if Obsidian.workspace.name == "cacheflo" then
+          return work_today()
+        end
+        vim.cmd("Obsidian today")
+      end,
+      desc = "Obsidian Today",
+    },
+    { "<leader>oj", "<cmd>Obsidian work_today<cr>", desc = "Obsidian Work Journal" },
+    { "<leader>ow", "<cmd>Obsidian workspace<cr>", desc = "Obsidian Workspace" },
     { "<leader>op", "<cmd>Obsidian new_project<cr>", desc = "Obsidian New Project" },
   },
   dependencies = {
@@ -156,6 +184,7 @@ return {
     local obsidian = require("obsidian")
     obsidian.setup(opts)
     obsidian.register_command("new_project", { nargs = "*", func = new_project })
+    obsidian.register_command("work_today", { nargs = 0, func = work_today })
   end,
   opts = {
     frontmatter = {
@@ -171,6 +200,20 @@ return {
         path = function()
           return vim.env.OBSIDIAN_WORK
         end,
+      },
+      {
+        name = "cacheflo",
+        strict = true,
+        path = function()
+          return vim.env.OBSIDIAN_KNOWLEDGE
+        end,
+        overrides = {
+          daily_notes = {
+            enabled = false,
+            folder = vim.NIL,
+            template = vim.NIL,
+          },
+        },
       },
       {
         name = "people",
