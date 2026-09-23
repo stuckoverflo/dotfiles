@@ -16,6 +16,21 @@ function switch_to_worktree() {
   [[ -n "$selected" ]] && cd "$selected"
 }
 
+function git-bare-clone() {
+  if (( $# != 1 )); then
+    print -u2 'Usage: git-bare-clone <repo>'
+    return 1
+  fi
+
+  local repo_name repo_dir
+  repo_name=${${1%/}##*/}
+  repo_dir=${repo_name%.git}.git
+
+  git clone --bare "$1" "$repo_dir" || return
+  git -C "$repo_dir" config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' || return
+  git -C "$repo_dir" fetch origin
+}
+
 op-work() (
   unsetopt xtrace
 
