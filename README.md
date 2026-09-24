@@ -38,7 +38,7 @@ Each directory is a stow package that mirrors `$HOME`:
 ├── direnv/        .config/direnv/direnvrc
 ├── ghostty/       .config/ghostty/config
 ├── git/           .gitconfig + .config/git/ignore
-├── karabiner/     .config/karabiner/assets/complex_modifications/
+├── karabiner/     .config/karabiner/karabiner.json + assets/complex_modifications/
 ├── nvim/          .config/nvim/
 ├── readline/      .inputrc
 ├── shell/         .config/shell/aliases.sh, utils.sh

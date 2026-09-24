@@ -1,5 +1,5 @@
 {
-  "description": "Hyper + i/j/k/l == vim directional Keys",
+  "description": "Hyper + h/j/k/l == vim directional keys",
   "manipulators": [
     {
       "from": {

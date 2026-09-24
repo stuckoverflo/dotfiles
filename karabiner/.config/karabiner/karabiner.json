@@ -22,28 +22,7 @@
                         ]
                     },
                     {
-                        "description": "Meh Home and End keymaps",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "n",
-                                    "modifiers": { "mandatory": ["left_shift", "left_control", "left_option"] }
-                                },
-                                "to": [{ "key_code": "end" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "i",
-                                    "modifiers": { "mandatory": ["left_shift", "left_control", "left_option"] }
-                                },
-                                "to": [{ "key_code": "home" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Hyper + i/j/k/l == vim directional Keys",
+                        "description": "Hyper + h/j/k/l == vim directional keys",
                         "manipulators": [
                             {
                                 "from": {
