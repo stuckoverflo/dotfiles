@@ -70,6 +70,7 @@ outer.right =      8
 # 'main' binding mode must be always presented
 # Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
+  alt-shift-cmd-ctrl-quote = 'layout floating tiling'
 
 # All possible keys:
 # - Letters.        a, b, c, ..., z
@@ -244,7 +245,8 @@ run = 'move-node-to-workspace Z'
 
 [[on-window-detected]]
 check-further-callbacks = true
-run = ['layout tiling', 'move-node-to-workspace 1']
+run = ['layout floating']
+# run = ['layout tiling', 'move-node-to-workspace 1']
 
 # # Workspace to monitor bindings
 # [workspace-to-monitor-force-assignment]
