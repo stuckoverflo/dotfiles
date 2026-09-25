@@ -47,6 +47,7 @@ if OS.mac?
   cask "ghostty"
   cask "jordanbaird-ice"
   cask "karabiner-elements"
+  cask "kitty"
   cask "notunes"
   cask "obsidian"
   cask "raycast"

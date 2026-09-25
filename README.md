@@ -39,6 +39,7 @@ Each directory is a stow package that mirrors `$HOME`:
 ├── ghostty/       .config/ghostty/config
 ├── git/           .gitconfig + .config/git/ignore
 ├── karabiner/     .config/karabiner/karabiner.json
+├── kitty/         .config/kitty/kitty.conf
 ├── nvim/          .config/nvim/
 ├── readline/      .inputrc
 ├── shell/         .config/shell/aliases.sh, utils.sh
