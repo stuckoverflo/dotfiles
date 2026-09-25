@@ -141,6 +141,7 @@ outer.right =      8
   alt-shift-cmd-ctrl-c = 'workspace C' # chat/teams
   alt-shift-cmd-ctrl-d = 'workspace D' # todo
   alt-shift-cmd-ctrl-f = 'workspace F' # T3
+  alt-shift-cmd-ctrl-g = 'workspace G' # Grok Bot
   alt-shift-cmd-ctrl-leftSquareBracket = 'workspace [' # ChatGPT
   alt-shift-cmd-ctrl-n = 'workspace N' # notes
   alt-shift-cmd-ctrl-o = 'workspace O' # mail
@@ -164,6 +165,7 @@ outer.right =      8
   alt-shift-c = 'move-node-to-workspace C'
   alt-shift-d = 'move-node-to-workspace D'
   alt-shift-f = 'move-node-to-workspace F'
+  alt-shift-g = 'move-node-to-workspace G'
   alt-shift-leftSquareBracket = 'move-node-to-workspace ['
   alt-shift-n = 'move-node-to-workspace N'
   alt-shift-o = 'move-node-to-workspace O'
@@ -210,6 +212,10 @@ run = 'move-node-to-workspace D'
 [[on-window-detected]]
 if.app-id = 'com.t3tools.t3code'
 run = 'move-node-to-workspace F'
+
+[[on-window-detected]]
+if.app-id = 'com.anysphere.sand'
+run = 'move-node-to-workspace G'
 
 [[on-window-detected]]
 if.app-id = 'com.openai.codex'
