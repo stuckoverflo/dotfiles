@@ -208,6 +208,7 @@ return {
           return vim.env.OBSIDIAN_KNOWLEDGE
         end,
         overrides = {
+          notes_subdir = "zettel",
           daily_notes = {
             enabled = false,
             folder = vim.NIL,
@@ -269,7 +270,7 @@ return {
       },
       customizations = {
         a_nvim_zettel = {
-          notes_subdir = "00-inbox",
+          notes_subdir = "zettel",
           note_id_func = function(title)
             local suffix = ""
             if title ~= nil then
