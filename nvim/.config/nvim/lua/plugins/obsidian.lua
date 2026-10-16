@@ -270,7 +270,6 @@ return {
       },
       customizations = {
         a_nvim_zettel = {
-          notes_subdir = "zettel",
           note_id_func = function(title)
             local suffix = ""
             if title ~= nil then
