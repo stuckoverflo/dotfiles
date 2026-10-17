@@ -187,6 +187,11 @@ return {
     obsidian.register_command("work_today", { nargs = 0, func = work_today })
   end,
   opts = {
+    callbacks = {
+      create_note = function(note)
+        require("zettel_journal").on_create(note)
+      end,
+    },
     frontmatter = {
       enabled = false,
     },
